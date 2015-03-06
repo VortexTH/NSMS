@@ -1,6 +1,8 @@
 package GUI.authentication;
+
 import GUI.gui_main_landing;
 import sqlcontrol.*;
+
 import java.awt.*;
 import java.sql.*;
 
@@ -124,16 +126,25 @@ public class authentication_gui extends JDialog {
 					    if(count == 1){					    	
 					    	dispose();
 					    	//Opens Main Landing GUI in full screen mode
-					    	GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
-					    	GraphicsDevice gd = env.getDefaultScreenDevice();
+					    	
+					    	//GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
+					    	//GraphicsDevice gd = env.getDefaultScreenDevice();
+					    	//Rectangle bounds = env.getMaximumWindowBounds();
+					    	//main.setBounds(bounds);
 					    	
 					    	gui_main_landing main = new gui_main_landing();
-					    	main.setVisible(true);
-					    	main.setModal(true);
+					        
+					    	//Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+					    	//main.setBounds(0,0,screenSize.width, screenSize.height);
+					    	//main.setVisible(true);
+							
+					    	main.setVisible(true); 
+					    	
+					    	//main.setModal(true);
+					    	
 					    	main.setResizable(false);					
-					    	gd.setFullScreenWindow(main);
-					    	Rectangle bounds = env.getMaximumWindowBounds();
-					    	main.setBounds(bounds);
+					    	
+					    	
 					      }
 					
 					  else if (count<1){

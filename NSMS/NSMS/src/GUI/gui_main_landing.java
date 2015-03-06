@@ -1,51 +1,32 @@
 package GUI;
 
-import chat.chat_gui;
-
-import sqlcontrol.*;
-
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
-import java.awt.Frame;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
-import java.awt.Image;
-import java.awt.Rectangle;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JDesktopPane;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
-import javax.swing.UIManager;
-import javax.swing.JButton;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.WindowEvent;
-
+import javax.swing.JInternalFrame;
+import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JMenu;
 import javax.swing.JSeparator;
-import javax.swing.ImageIcon;
-
-import java.awt.Color;
-
-import javax.swing.JInternalFrame;
-import javax.swing.JTabbedPane;
-import javax.swing.JSpinner;
-import javax.swing.JFormattedTextField;
-import javax.swing.JList;
 import javax.swing.border.EtchedBorder;
-import javax.swing.border.MatteBorder;
-import javax.swing.border.SoftBevelBorder;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.TitledBorder;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.CompoundBorder;
-import java.awt.SystemColor;
+import net.miginfocom.swing.MigLayout;
 
-//INCOMPLTE; MAJOR WIP
-public class gui_main_landing extends JDialog {
+//import GUI.gui_main_landing;
+//import chat.chat_gui;
+
+
+public class gui_main_landing {
+
+	private JFrame frame;
 
 	/**
 	 * Launch the application.
@@ -53,88 +34,72 @@ public class gui_main_landing extends JDialog {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				try {					
-					GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
-					GraphicsDevice gd = env.getDefaultScreenDevice();
-					gui_main_landing dialog = new gui_main_landing();
-					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-					dialog.setVisible(true);
-					dialog.setResizable(false);					
-					gd.setFullScreenWindow(dialog);
-					Rectangle bounds = env.getMaximumWindowBounds();
-					dialog.setBounds(bounds);
+				try {
+					
+					gui_main_landing window = new gui_main_landing();
+					window.frame.setVisible(true);
 					
 					
-					UIManager.setLookAndFeel("com.jtattoo.plaf.smart.SmartLookAndFeel");
 					
-				  
-				} 
-				
-				   catch (Exception e) {
+					Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+					window.frame.setBounds(0,0,screenSize.width, screenSize.height);
+					
+					
+					window.frame.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+					window.frame.setVisible(true);
+					window.frame.setResizable(true);
+					
+					//window.frame.setExtendedState( window.frame.getExtendedState()|JFrame.MAXIMIZED_BOTH );   Maximizes Window upon paint, but messes up layout currently.
+					
+					
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
 	}
 
-	
-
 	/**
-	 * Create the dialog.
+	 * Create the application.
 	 */
 	public gui_main_landing() {
-		getContentPane().setBackground(SystemColor.controlHighlight);
+		initialize();
 		
-		ImageIcon cheap_logo = new ImageIcon("graphics_resources/cheap_logo.png"); //creates logo icon
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
 		
-		Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
-		setBounds(0, 0,screen.width,screen.height - 30);		
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		getContentPane().setLayout(null);
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		frame.setBounds(0,0,screenSize.width, screenSize.height);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JInternalFrame internalFrame = new JInternalFrame("Student Browser");
-		internalFrame.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.GRAY, Color.WHITE));
-		internalFrame.setBounds(10, 11, 412, 965);	
-		internalFrame.setResizable(true);
-		internalFrame.setFrameIcon(cheap_logo);
-		getContentPane().add(internalFrame);
-		
-		JInternalFrame internalFrame_1 = new JInternalFrame("Main");
-		internalFrame_1.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.GRAY, Color.WHITE));
-		internalFrame_1.setBounds(432, 11, 1462, 625);
-		internalFrame_1.setResizable(true);
-		internalFrame_1.setFrameIcon(cheap_logo);
-		getContentPane().add(internalFrame_1);	
-		
-		JInternalFrame internalFrame_2 = new JInternalFrame("Quick Access");
-		internalFrame_2.setAutoscrolls(true);
-		internalFrame_2.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.GRAY, new Color(255, 255, 255)));
-		internalFrame_2.setBounds(432, 647, 1462, 329);
-		internalFrame_2.setResizable(true);
-		internalFrame_2.setFrameIcon(cheap_logo);
-		
-		getContentPane().add(internalFrame_2);
-		internalFrame_2.setVisible(true);
-		internalFrame_1.setVisible(true);
-		internalFrame.setVisible(true);
-		
-		ImageIcon save_one_icon = new ImageIcon("graphics_resources/save_one.png"); //Creates save one icon
+		ImageIcon cheap_logo = new ImageIcon("graphicss_resources/cheap_logo.png");
+		ImageIcon new_icon = new ImageIcon("graphics_resources/new.png");
+		ImageIcon entry_icon = new ImageIcon("graphics_resources/new_entry.png");
+		ImageIcon refresh_icon = new ImageIcon("graphics_resources/refresh.png");
+		frame.getContentPane().setLayout(new MigLayout("", "[195px][1px]", "[28px]"));
+		frame.getContentPane().setLayout(new MigLayout("", "[195px][1px]", "[28px]"));
 		
 		JMenuBar menuBar = new JMenuBar();
-		setJMenuBar(menuBar);
+		frame.getContentPane().add(menuBar, "cell 0 0,growx,aligny top");
 		
 		JMenu mnFile = new JMenu("File");
 		menuBar.add(mnFile);
 		
-		JMenu mnNew = new JMenu("Add");
-		ImageIcon new_icon = new ImageIcon("graphics_resources/new.png");
-		mnNew.setIcon(new_icon);
-		mnFile.add(mnNew);
+		JMenu mnImport = new JMenu("Import");
+		mnImport.setIcon(new_icon);
+		mnFile.add(mnImport);
 		
-		JMenuItem mntmEntry = new JMenuItem("Entry            ");
-		ImageIcon entry_icon = new ImageIcon("graphics_resources/new_entry.png");
-		mntmEntry.setIcon(entry_icon);
-		mnNew.add(mntmEntry);
+		JMenuItem mntmImportTextDocument = new JMenuItem("Text Document          ");
+		mntmImportTextDocument.setIcon(entry_icon);
+		mnImport.add(mntmImportTextDocument);
+		
+		JMenuItem mntmImportPicture = new JMenuItem("Picture");
+		mnImport.add(mntmImportPicture);
 		
 		JMenuItem mntmOpen = new JMenuItem("Open");
 		mntmOpen.setIcon(new ImageIcon(gui_main_landing.class.getResource("/javax/swing/plaf/metal/icons/ocean/upFolder.gif")));
@@ -166,12 +131,20 @@ public class gui_main_landing extends JDialog {
 		mnFile.add(separator_1);
 		
 		JMenuItem mntmRefreshAll = new JMenuItem("Refresh All");
-		ImageIcon refresh_icon = new ImageIcon("graphics_resources/refresh.png");
 		mntmRefreshAll.setIcon(refresh_icon);
 		mnFile.add(mntmRefreshAll);
 		
 		JMenu mnOptions = new JMenu("Options");
 		menuBar.add(mnOptions);
+		
+		JMenuItem mntmImportOptions = new JMenuItem("Import               ");
+		mnOptions.add(mntmImportOptions);
+		
+		JSeparator separator_3 = new JSeparator();
+		mnOptions.add(separator_3);
+		
+		JMenuItem mntmNetworkOptions = new JMenuItem("Network Settings");
+		mnOptions.add(mntmNetworkOptions);
 		
 		JMenu mnView = new JMenu("View");
 		menuBar.add(mnView);
@@ -188,10 +161,11 @@ public class gui_main_landing extends JDialog {
 		btnChat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				chat_gui chat = new chat_gui();
-				chat.setVisible(true);
-				chat.setAlwaysOnTop(true);
-				chat.setAutoRequestFocus(true);
+				//chat_gui chat = new chat_gui();
+				//chat.setVisible(true);
+				//chat.setAlwaysOnTop(true);
+				//chat.setAutoRequestFocus(true);
+				//chat.setResizable(false);
 				
 			}
 		});
@@ -199,22 +173,48 @@ public class gui_main_landing extends JDialog {
 		btnChat.setBackground(Color.DARK_GRAY);
 		menuBar.add(btnChat);
 		
-		//sets JInternalFrames mmobile. does not function! Have to double-check!
-		internalFrame.putClientProperty("dragMode", "fixed");
-		internalFrame_1.putClientProperty("dragMode", "fixed");
-		internalFrame_2.putClientProperty("dragMode", "fixed");
-		
 		JButton btnExit = new JButton("Exit");
 		btnExit.setForeground(Color.WHITE);
 		btnExit.setBackground(Color.DARK_GRAY);
-		menuBar.add(btnExit);
+		menuBar.add(btnExit);		
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				dispose();
+				frame.dispose();
 				
 			}
 		});
-
+		
+		JDesktopPane desktopPane = new JDesktopPane();
+		desktopPane.setBackground(new Color(143, 188, 143));
+		frame.getContentPane().add(desktopPane, "cell 1 0,grow");
+		desktopPane.setLayout(new MigLayout("", "[407px][1470.00px]", "[651px][13px][308.00px]"));
+		
+		JInternalFrame internalFrame = new JInternalFrame("Browser");		
+		internalFrame.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.GRAY, Color.WHITE));
+		internalFrame.setResizable(true);
+		internalFrame.setFrameIcon(cheap_logo);
+		internalFrame.setVisible(true);
+		desktopPane.add(internalFrame, "cell 0 0 1 3,grow");
+		internalFrame.getContentPane().setLayout(new MigLayout("", "[]", "[]"));
+		
+		JInternalFrame internalFrame_1 = new JInternalFrame("Main");
+		internalFrame_1.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.GRAY, Color.WHITE));
+		internalFrame_1.setResizable(true);
+		internalFrame_1.setFrameIcon(cheap_logo);
+		internalFrame_1.setVisible(true);
+		desktopPane.add(internalFrame_1, "cell 1 0,grow");
+		internalFrame_1.getContentPane().setLayout(new MigLayout("", "[]", "[]"));
+		
+		JInternalFrame internalFrame_2 = new JInternalFrame("Quick Access");
+		internalFrame_2.setAutoscrolls(true);
+		internalFrame_2.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.GRAY, new Color(255, 255, 255)));
+		internalFrame_2.setResizable(true);
+		internalFrame_2.setFrameIcon(cheap_logo);
+		internalFrame_2.setVisible(true);
+		desktopPane.add(internalFrame_2, "cell 1 1 1 2,grow");
+		internalFrame_2.getContentPane().setLayout(new MigLayout("", "[]", "[]"));
+		
+		
 	}
 }
