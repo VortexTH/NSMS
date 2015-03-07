@@ -4,21 +4,33 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Toolkit;
+
+import javax.swing.ImageIcon;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JSeparator;
+
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JDesktopPane;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
-import javax.swing.JInternalFrame;
-import javax.swing.JMenu;
 import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JSeparator;
+import javax.swing.JInternalFrame;
 import javax.swing.border.EtchedBorder;
+import javax.swing.JDesktopPane;
+
+import chat.chat_gui;
+
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+
 import net.miginfocom.swing.MigLayout;
+import javax.swing.JRadioButton;
+import javax.swing.JSpinner;
 
 //import GUI.gui_main_landing;
 //import chat.chat_gui;
@@ -26,7 +38,7 @@ import net.miginfocom.swing.MigLayout;
 
 public class gui_main_landing {
 
-	private JFrame frame;
+	private JFrame frmNsms;
 
 	/**
 	 * Launch the application.
@@ -37,19 +49,19 @@ public class gui_main_landing {
 				try {
 					
 					gui_main_landing window = new gui_main_landing();
-					window.frame.setVisible(true);
+					window.frmNsms.setVisible(true);
 					
 					
 					
 					Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-					window.frame.setBounds(0,0,screenSize.width, screenSize.height);
+					window.frmNsms.setBounds(0,0,screenSize.width, screenSize.height);
 					
 					
-					window.frame.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-					window.frame.setVisible(true);
-					window.frame.setResizable(true);
+					window.frmNsms.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+					window.frmNsms.setVisible(true);
+					window.frmNsms.setResizable(true);
 					
-					//window.frame.setExtendedState( window.frame.getExtendedState()|JFrame.MAXIMIZED_BOTH );   Maximizes Window upon paint, but messes up layout currently.
+					//window.frame.setExtendedState( window.frame.getExtendedState()|JFrame.MAXIMIZED_BOTH );   Maximizes Window upon paint, but messes up layout cu
 					
 					
 				} catch (Exception e) {
@@ -71,21 +83,22 @@ public class gui_main_landing {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
+		frmNsms = new JFrame();
+		frmNsms.setTitle("NSMS");
+		
+		frmNsms.getContentPane().setLayout(new MigLayout("", "[1896px]", "[30px][996px]"));
 		
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		frame.setBounds(0,0,screenSize.width, screenSize.height);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmNsms.setBounds(0,0,screenSize.width, screenSize.height);
+		frmNsms.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		ImageIcon cheap_logo = new ImageIcon("graphicss_resources/cheap_logo.png");
 		ImageIcon new_icon = new ImageIcon("graphics_resources/new.png");
 		ImageIcon entry_icon = new ImageIcon("graphics_resources/new_entry.png");
 		ImageIcon refresh_icon = new ImageIcon("graphics_resources/refresh.png");
-		frame.getContentPane().setLayout(new MigLayout("", "[195px][1px]", "[28px]"));
-		frame.getContentPane().setLayout(new MigLayout("", "[195px][1px]", "[28px]"));
 		
 		JMenuBar menuBar = new JMenuBar();
-		frame.getContentPane().add(menuBar, "cell 0 0,growx,aligny top");
+		frmNsms.getContentPane().add(menuBar, "cell 0 0,grow");
 		
 		JMenu mnFile = new JMenu("File");
 		menuBar.add(mnFile);
@@ -161,11 +174,13 @@ public class gui_main_landing {
 		btnChat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				//chat_gui chat = new chat_gui();
-				//chat.setVisible(true);
-				//chat.setAlwaysOnTop(true);
-				//chat.setAutoRequestFocus(true);
-				//chat.setResizable(false);
+				
+				
+				chat_gui chat = new chat_gui();
+				chat.setVisible(true);
+				chat.setAlwaysOnTop(true);
+				chat.setAutoRequestFocus(true);
+				chat.setResizable(false);
 				
 			}
 		});
@@ -173,21 +188,34 @@ public class gui_main_landing {
 		btnChat.setBackground(Color.DARK_GRAY);
 		menuBar.add(btnChat);
 		
+		JButton btnResetLayout = new JButton("Reset Layout");
+		btnResetLayout.setBackground(Color.DARK_GRAY);
+		btnResetLayout.setForeground(new Color(255, 255, 255));
+		btnResetLayout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				//TODO Add functionality!
+		
+			}
+		});
+		
+		menuBar.add(btnResetLayout);
+		
 		JButton btnExit = new JButton("Exit");
 		btnExit.setForeground(Color.WHITE);
 		btnExit.setBackground(Color.DARK_GRAY);
-		menuBar.add(btnExit);		
+		menuBar.add(btnExit);
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				frame.dispose();
+				frmNsms.dispose();
 				
 			}
 		});
 		
 		JDesktopPane desktopPane = new JDesktopPane();
 		desktopPane.setBackground(new Color(143, 188, 143));
-		frame.getContentPane().add(desktopPane, "cell 1 0,grow");
+		frmNsms.getContentPane().add(desktopPane, "cell 0 1,grow");
 		desktopPane.setLayout(new MigLayout("", "[407px][1470.00px]", "[651px][13px][308.00px]"));
 		
 		JInternalFrame internalFrame = new JInternalFrame("Browser");		
@@ -214,7 +242,5 @@ public class gui_main_landing {
 		internalFrame_2.setVisible(true);
 		desktopPane.add(internalFrame_2, "cell 1 1 1 2,grow");
 		internalFrame_2.getContentPane().setLayout(new MigLayout("", "[]", "[]"));
-		
-		
 	}
 }

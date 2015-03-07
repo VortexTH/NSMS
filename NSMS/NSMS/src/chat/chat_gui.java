@@ -161,7 +161,7 @@ public void Disconnect() {
 	 */
 	public chat_gui() {
 		
-		setBounds(100, 100, 650, 500);
+		setBounds(100, 100, 650, 489);
 		getContentPane().setLayout(null);
 		
 		JLabel lblUsersOnline = new JLabel("Users online:");
@@ -181,10 +181,12 @@ public void Disconnect() {
 		
 		JTextArea inputTextArea = new JTextArea();
 		inputTextArea.setLineWrap(true);
-		inputTextArea.setBounds(12, 347, 311, 66);
+		inputTextArea.setBounds(12, 347, 311, 84);
 		getContentPane().add(inputTextArea);
 		
 		JButton sendButton = new JButton("Send");
+		sendButton.setForeground(new Color(60, 179, 113));
+		sendButton.setBackground(Color.GRAY);
 		sendButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -209,7 +211,7 @@ public void Disconnect() {
 				
 			}
 		});
-		sendButton.setBounds(334, 347, 76, 66);
+		sendButton.setBounds(334, 347, 76, 84);
 		getContentPane().add(sendButton);
 		
 		JLabel lblConnected = new JLabel("");
@@ -240,6 +242,8 @@ public void Disconnect() {
 		getContentPane().add(lblUsername);
 		
 		JButton connectButton = new JButton("Connect");
+		connectButton.setForeground(Color.LIGHT_GRAY);
+		connectButton.setBackground(Color.GRAY);
 		connectButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 								
@@ -248,6 +252,7 @@ public void Disconnect() {
 		            Username = usernameField.getText();
 		            usernameField.setEditable(false);
 		            
+		            //TODO Add correct data here
 		            try {
 		                sock = new Socket("127.0.0.1", 5000); //loop-back IP just for testing. will add server IP later, will have to change port as well!
 		                InputStreamReader streamreader = new InputStreamReader(sock.getInputStream());
@@ -264,8 +269,7 @@ public void Disconnect() {
 		                lblConnected.setText("");
 		                lblDisconnected.setText("Disconnected!");
 		            }
-		            
-		            //penis! Malte ist ein hurensohn!!
+		     
 		            ListenThread();
 		        } else if (isConnected == true) {
 		            chatTextArea.append("You are already connected. \n");		            
@@ -276,6 +280,8 @@ public void Disconnect() {
 		getContentPane().add(connectButton);
 		
 		JButton disconnectButton = new JButton("Disconnect");
+		disconnectButton.setForeground(Color.LIGHT_GRAY);
+		disconnectButton.setBackground(Color.GRAY);
 		disconnectButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
