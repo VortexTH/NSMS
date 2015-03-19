@@ -108,10 +108,26 @@ public class gui_main_landing {
 		mnFile.add(mnImport);
 		
 		JMenuItem mntmImportTextDocument = new JMenuItem("Text Document          ");
+		mntmImportTextDocument.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				add_documents_menu documentsmenu = new add_documents_menu();
+				documentsmenu.setVisible(true);
+				
+			}
+		});
 		mntmImportTextDocument.setIcon(entry_icon);
 		mnImport.add(mntmImportTextDocument);
 		
 		JMenuItem mntmImportPicture = new JMenuItem("Picture");
+		mntmImportPicture.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				add_graphics_menu graphicsmenu = new add_graphics_menu();
+				graphicsmenu.setVisible(true);				
+				
+			}
+		});
 		mnImport.add(mntmImportPicture);
 		
 		JMenuItem mntmOpen = new JMenuItem("Open");
@@ -150,7 +166,7 @@ public class gui_main_landing {
 		JMenu mnOptions = new JMenu("Options");
 		menuBar.add(mnOptions);
 		
-		JMenuItem mntmImportOptions = new JMenuItem("Import               ");
+		JMenuItem mntmImportOptions = new JMenuItem("Import          ");
 		mnOptions.add(mntmImportOptions);
 		
 		JSeparator separator_3 = new JSeparator();

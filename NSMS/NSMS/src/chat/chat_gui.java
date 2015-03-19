@@ -185,7 +185,7 @@ public void Disconnect() {
 		getContentPane().add(inputTextArea);
 		
 		JButton sendButton = new JButton("Send");
-		sendButton.setForeground(new Color(60, 179, 113));
+		sendButton.setForeground(new Color(0, 255, 0));
 		sendButton.setBackground(Color.GRAY);
 		sendButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -242,7 +242,7 @@ public void Disconnect() {
 		getContentPane().add(lblUsername);
 		
 		JButton connectButton = new JButton("Connect");
-		connectButton.setForeground(Color.LIGHT_GRAY);
+		connectButton.setForeground(Color.WHITE);
 		connectButton.setBackground(Color.GRAY);
 		connectButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -280,7 +280,7 @@ public void Disconnect() {
 		getContentPane().add(connectButton);
 		
 		JButton disconnectButton = new JButton("Disconnect");
-		disconnectButton.setForeground(Color.LIGHT_GRAY);
+		disconnectButton.setForeground(Color.WHITE);
 		disconnectButton.setBackground(Color.GRAY);
 		disconnectButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
