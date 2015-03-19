@@ -1,7 +1,7 @@
-package GUI.authentication;
+package NSMS.src.GUI.authentication;
 
-import GUI.gui_main_landing;
-import sqlcontrol.*;
+import NSMS.src.GUI.gui_main_landing;
+import NSMS.src.sqlcontrol.*;
 
 import java.awt.*;
 import java.sql.*;

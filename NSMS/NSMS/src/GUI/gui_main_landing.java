@@ -1,4 +1,4 @@
-package GUI;
+package NSMS.src.GUI;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -22,7 +22,7 @@ import javax.swing.JInternalFrame;
 import javax.swing.border.EtchedBorder;
 import javax.swing.JDesktopPane;
 
-import chat.chat_gui;
+import NSMS.src.chat.*;
 
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;

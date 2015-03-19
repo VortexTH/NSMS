@@ -1,4 +1,5 @@
-package sqlcontrol;
+package NSMS.src.sqlcontrol;
+
 import java.sql.*;
 import javax.swing.*;
 

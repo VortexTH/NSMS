@@ -1,5 +1,5 @@
-package GUI.authentication;
-import sqlcontrol.*;
+package NSMS.src.GUI.authentication;
+import NSMS.src.sqlcontrol.*;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 

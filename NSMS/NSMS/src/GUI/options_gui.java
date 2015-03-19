@@ -1,4 +1,5 @@
-package GUI;
+package NSMS.src.GUI;
+
 import java.awt.EventQueue;
 
 import javax.swing.JDialog;

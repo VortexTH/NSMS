@@ -1,4 +1,4 @@
-package chat;
+package NSMS.src.chat;
 
 import java.io.*;
 import java.net.*;

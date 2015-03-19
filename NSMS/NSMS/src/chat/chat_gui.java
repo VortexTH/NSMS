@@ -1,4 +1,4 @@
-package chat;
+package NSMS.src.chat;
 
 import java.awt.EventQueue;
 
