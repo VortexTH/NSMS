@@ -189,9 +189,7 @@ public class gui_main_landing {
 		JButton btnChat = new JButton("Chat");
 		btnChat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				
-				
+								
 				chat_gui chat = new chat_gui();
 				chat.setVisible(true);
 				chat.setAlwaysOnTop(true);
@@ -203,20 +201,7 @@ public class gui_main_landing {
 		btnChat.setForeground(Color.WHITE);
 		btnChat.setBackground(Color.DARK_GRAY);
 		menuBar.add(btnChat);
-		
-		JButton btnResetLayout = new JButton("Reset Layout");
-		btnResetLayout.setBackground(Color.DARK_GRAY);
-		btnResetLayout.setForeground(new Color(255, 255, 255));
-		btnResetLayout.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				//TODO Add functionality!
-		
-			}
-		});
-		
-		menuBar.add(btnResetLayout);
-		
+						
 		JButton btnExit = new JButton("Exit");
 		btnExit.setForeground(Color.WHITE);
 		btnExit.setBackground(Color.DARK_GRAY);
@@ -234,29 +219,20 @@ public class gui_main_landing {
 		frmNsms.getContentPane().add(desktopPane, "cell 0 1,grow");
 		desktopPane.setLayout(new MigLayout("", "[407px][1470.00px]", "[651px][13px][308.00px]"));
 		
-		JInternalFrame internalFrame = new JInternalFrame("Browser");		
-		internalFrame.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.GRAY, Color.WHITE));
-		internalFrame.setResizable(true);
-		internalFrame.setFrameIcon(cheap_logo);
-		internalFrame.setVisible(true);
-		desktopPane.add(internalFrame, "cell 0 0 1 3,grow");
-		internalFrame.getContentPane().setLayout(new MigLayout("", "[]", "[]"));
+		JInternalFrame internalFrameBrowser = new JInternalFrame("Browser");		
+		internalFrameBrowser.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.GRAY, Color.WHITE));
+		internalFrameBrowser.setResizable(true);
+		internalFrameBrowser.setFrameIcon(cheap_logo);
+		internalFrameBrowser.setVisible(true);
+		desktopPane.add(internalFrameBrowser, "cell 0 0 1 3,grow");
+		internalFrameBrowser.getContentPane().setLayout(new MigLayout("", "[]", "[]"));
 		
-		JInternalFrame internalFrame_1 = new JInternalFrame("Main");
-		internalFrame_1.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.GRAY, Color.WHITE));
-		internalFrame_1.setResizable(true);
-		internalFrame_1.setFrameIcon(cheap_logo);
-		internalFrame_1.setVisible(true);
-		desktopPane.add(internalFrame_1, "cell 1 0,grow");
-		internalFrame_1.getContentPane().setLayout(new MigLayout("", "[]", "[]"));
-		
-		JInternalFrame internalFrame_2 = new JInternalFrame("Quick Access");
-		internalFrame_2.setAutoscrolls(true);
-		internalFrame_2.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.GRAY, new Color(255, 255, 255)));
-		internalFrame_2.setResizable(true);
-		internalFrame_2.setFrameIcon(cheap_logo);
-		internalFrame_2.setVisible(true);
-		desktopPane.add(internalFrame_2, "cell 1 1 1 2,grow");
-		internalFrame_2.getContentPane().setLayout(new MigLayout("", "[]", "[]"));
+		JInternalFrame internalFrameMain = new JInternalFrame("Main");
+		internalFrameMain.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.GRAY, Color.WHITE));
+		internalFrameMain.setResizable(true);
+		internalFrameMain.setFrameIcon(cheap_logo);
+		internalFrameMain.setVisible(true);
+		desktopPane.add(internalFrameMain, "cell 1 0 1 3,grow");
+		internalFrameMain.getContentPane().setLayout(new MigLayout("", "[]", "[]"));
 	}
 }

@@ -7,10 +7,13 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JSeparator;
 import javax.swing.JRadioButton;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -53,6 +56,22 @@ public class add_graphics_menu extends JDialog {
 		textField.setColumns(10);
 		
 		JButton btnBrowse = new JButton("Browse");
+		btnBrowse.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				JDialog pictures = new JDialog();
+				
+				JFileChooser chooseimage = new JFileChooser();
+				
+				pictures.setSize(450,300);
+				pictures.getContentPane().add(chooseimage);
+				pictures.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+				pictures.requestFocus();
+				pictures.setVisible(true);
+				
+				
+			}
+		});
 		btnBrowse.setBounds(299, 49, 89, 23);
 		contentPanel.add(btnBrowse);
 		
@@ -81,7 +100,7 @@ public class add_graphics_menu extends JDialog {
 		contentPanel.add(rdbtnClassmates);
 		
 		JRadioButton rdbtnJustMeprivate = new JRadioButton("Just Me (private)");
-		rdbtnJustMeprivate.setBounds(10, 244, 109, 23);
+		rdbtnJustMeprivate.setBounds(10, 244, 144, 23);
 		contentPanel.add(rdbtnJustMeprivate);
 		{
 			JPanel buttonPane = new JPanel();

@@ -139,7 +139,7 @@ public class authentication_gui extends JDialog {
 					    	//main.setVisible(true);
 							
 					    	//TODO Check this!
-					    	main.setVisible(true); 
+					    	main.setVisible(true);
 					    	
 					    	//main.setModal(true);
 					    	
