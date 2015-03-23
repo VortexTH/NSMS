@@ -63,7 +63,7 @@ public class signup_gui extends JDialog{
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		
-		JLabel lblIsrsmsSignup = new JLabel("ISRSMS Signup");
+		JLabel lblIsrsmsSignup = new JLabel("NSMS Signup");
 		lblIsrsmsSignup.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblIsrsmsSignup.setBounds(159, 11, 190, 50);
 		contentPanel.add(lblIsrsmsSignup);
@@ -122,6 +122,8 @@ public class signup_gui extends JDialog{
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton okButton = new JButton("OK");
+				okButton.setForeground(Color.WHITE);
+				okButton.setBackground(Color.GRAY);
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e){
 					
@@ -209,6 +211,8 @@ public class signup_gui extends JDialog{
 			}
 			{
 				JButton cancelButton = new JButton("Cancel");
+				cancelButton.setForeground(Color.WHITE);
+				cancelButton.setBackground(Color.GRAY);
 				cancelButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						dispose();
@@ -216,6 +220,8 @@ public class signup_gui extends JDialog{
 				});
 				{
 					JButton btnHelp = new JButton("help");
+					btnHelp.setForeground(Color.WHITE);
+					btnHelp.setBackground(Color.GRAY);
 					btnHelp.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {						
 							

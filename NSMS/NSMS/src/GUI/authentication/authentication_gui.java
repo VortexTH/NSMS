@@ -75,7 +75,7 @@ public class authentication_gui extends JDialog {
 		lblPassword.setBounds(30, 60, 90, 14);
 		contentPanel.add(lblPassword);
 		
-		JLabel lblIsrSmsLogin = new JLabel("ISR SMS Login");
+		JLabel lblIsrSmsLogin = new JLabel("NSMS Login");
 		lblIsrSmsLogin.setBounds(190, 11, 102, 14);
 		contentPanel.add(lblIsrSmsLogin);
 		
@@ -84,11 +84,13 @@ public class authentication_gui extends JDialog {
 		lblerror.setBounds(110, 95, 280, 14);
 		contentPanel.add(lblerror);
 		
+		/**
 		JLabel labelimg = new JLabel("");		
 		ImageIcon img_logo = new ImageIcon("graphics_resources/isr1.png"); //creates Image icon object in order to set the icon of the above JLabel.
 		labelimg.setIcon(img_logo);				
 		labelimg.setBounds(357, 31, 75, 52);
 		contentPanel.add(labelimg);
+		**/
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
@@ -99,7 +101,8 @@ public class authentication_gui extends JDialog {
 				okButton.setForeground(Color.WHITE);
 				okButton.setToolTipText("Press after finishing entry to proceed!");
 				okButton.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
+					
+					public void actionPerformed (ActionEvent e){
 					
 					String user;
 					char[] temp;
@@ -125,6 +128,7 @@ public class authentication_gui extends JDialog {
 					
 					    if(count == 1){					    	
 					    	dispose();
+					    	
 					    	//Opens Main Landing GUI in full screen mode
 					    	
 					    	//GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
@@ -132,18 +136,16 @@ public class authentication_gui extends JDialog {
 					    	//Rectangle bounds = env.getMaximumWindowBounds();
 					    	//main.setBounds(bounds);
 					    	
-					    	gui_main_landing main = new gui_main_landing();
+					    	gui_main_landing mainlanding = new gui_main_landing();
 					        
 					    	//Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 					    	//main.setBounds(0,0,screenSize.width, screenSize.height);
 					    	//main.setVisible(true);
 							
 					    	//TODO Check this!
-					    	main.setVisible(true);
+					    	mainlanding.setVisible(true);
 					    	
-					    	//main.setModal(true);
-					    	
-					    	main.setResizable(false);					
+					    	mainlanding.setResizable(false);					
 					    	
 					    	
 					      }

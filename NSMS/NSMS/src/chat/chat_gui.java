@@ -160,6 +160,7 @@ public void Disconnect() {
 	 * Create the dialog.
 	 */
 	public chat_gui() {
+		setTitle("NSMS Chat");
 		
 		setBounds(100, 100, 650, 489);
 		getContentPane().setLayout(null);

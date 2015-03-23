@@ -53,11 +53,8 @@ public class gui_main_landing {
 					gui_main_landing window = new gui_main_landing();
 					window.frmNsms.setVisible(true);
 					
-					
-					
 					Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-					window.frmNsms.setBounds(0,0,screenSize.width, screenSize.height);
-					
+					window.frmNsms.setBounds(0,0,screenSize.width, screenSize.height);				
 					
 					window.frmNsms.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 					window.frmNsms.setVisible(true);
@@ -206,11 +203,13 @@ public class gui_main_landing {
 		menuBar.add(mnHelp);
 		
 		JButton btnSaveAll = new JButton("Refresh");
+		btnSaveAll.setToolTipText("Refresh resources");
 		btnSaveAll.setForeground(Color.WHITE);
 		btnSaveAll.setBackground(Color.DARK_GRAY);
 		menuBar.add(btnSaveAll);
 		
 		JButton btnChat = new JButton("Chat");
+		btnChat.setToolTipText("Open NSMS Chat");
 		btnChat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 								
@@ -227,6 +226,7 @@ public class gui_main_landing {
 		menuBar.add(btnChat);
 						
 		JButton btnExit = new JButton("Exit");
+		btnExit.setToolTipText("Exit the application");
 		btnExit.setForeground(Color.WHITE);
 		btnExit.setBackground(Color.DARK_GRAY);
 		menuBar.add(btnExit);
@@ -244,6 +244,7 @@ public class gui_main_landing {
 		desktopPane.setLayout(new MigLayout("", "[407px][1470.00px]", "[651px][13px][308.00px]"));
 		
 		JInternalFrame internalFrameBrowser = new JInternalFrame("Browser");		
+		internalFrameBrowser.setToolTipText("Your Main File Browser");
 		internalFrameBrowser.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.GRAY, Color.WHITE));
 		internalFrameBrowser.setResizable(true);
 		internalFrameBrowser.setFrameIcon(cheap_logo);
@@ -252,6 +253,7 @@ public class gui_main_landing {
 		internalFrameBrowser.getContentPane().setLayout(new MigLayout("", "[]", "[]"));
 				
 		JInternalFrame internalFrameMain = new JInternalFrame("Main");
+		internalFrameMain.setToolTipText("Your Viewing area");
 		internalFrameMain.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.GRAY, Color.WHITE));
 		internalFrameMain.setResizable(true);
 		internalFrameMain.setFrameIcon(cheap_logo);
