@@ -37,7 +37,6 @@ import javax.swing.JSpinner;
 //import GUI.gui_main_landing;
 //import chat.chat_gui;
 
-
 public class gui_main_landing {
 
 	private JFrame frmNsms;
@@ -60,8 +59,7 @@ public class gui_main_landing {
 					window.frmNsms.setVisible(true);
 					window.frmNsms.setResizable(true);
 					
-					//window.frame.setExtendedState( window.frame.getExtendedState()|JFrame.MAXIMIZED_BOTH );   Maximizes Window upon paint, but messes up layout cu
-					
+					//window.frame.setExtendedState( window.frame.getExtendedState()|JFrame.MAXIMIZED_BOTH );   Maximizes Window upon paint, but messes up layout cu					
 					
 				} catch (Exception e) {
 					e.printStackTrace();

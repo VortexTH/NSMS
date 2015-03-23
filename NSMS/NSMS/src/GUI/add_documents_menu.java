@@ -49,14 +49,14 @@ public class add_documents_menu extends JDialog {
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setAlwaysOnTop(true);
 		setTitle("Add a Text Document");
-		setBounds(100, 100, 440, 470);
+		setBounds(100, 100, 343, 333);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		
 		txtdocumentfilepath = new JTextField();
-		txtdocumentfilepath.setBounds(10, 50, 279, 20);
+		txtdocumentfilepath.setBounds(10, 50, 222, 20);
 		contentPanel.add(txtdocumentfilepath);
 		txtdocumentfilepath.setColumns(10);
 		
@@ -103,7 +103,7 @@ public class add_documents_menu extends JDialog {
 	          
 			}
 		});
-		btnBrowse.setBounds(299, 49, 89, 23);
+		btnBrowse.setBounds(242, 49, 89, 23);
 		contentPanel.add(btnBrowse);
 		
 		JLabel lblFilepath = new JLabel("Filepath");
@@ -111,31 +111,31 @@ public class add_documents_menu extends JDialog {
 		contentPanel.add(lblFilepath);
 		
 		JLabel lblShareWith = new JLabel("Share with");
-		lblShareWith.setBounds(51, 166, 81, 20);
+		lblShareWith.setBounds(52, 81, 81, 20);
 		contentPanel.add(lblShareWith);
 		
 		JSeparator separator = new JSeparator();
-		separator.setBounds(10, 178, 37, 8);
+		separator.setBounds(10, 93, 37, 8);
 		contentPanel.add(separator);
 		
 		JSeparator separator_1 = new JSeparator();
-		separator_1.setBounds(116, 178, 308, 2);
+		separator_1.setBounds(116, 93, 211, 2);
 		contentPanel.add(separator_1);
 		
 		JRadioButton rdbtnEveryone = new JRadioButton("Everyone");
-		rdbtnEveryone.setBounds(10, 193, 109, 23);
+		rdbtnEveryone.setBounds(10, 108, 109, 23);
 		contentPanel.add(rdbtnEveryone);
 		
 		JRadioButton rdbtnClassmates = new JRadioButton("Others in my course");
-		rdbtnClassmates.setBounds(10, 218, 144, 23);
+		rdbtnClassmates.setBounds(10, 134, 144, 23);
 		contentPanel.add(rdbtnClassmates);
 		
 		JRadioButton rdbtnJustMeprivate = new JRadioButton("Just Me (private)");
-		rdbtnJustMeprivate.setBounds(10, 244, 144, 23);
+		rdbtnJustMeprivate.setBounds(10, 160, 144, 23);
 		contentPanel.add(rdbtnJustMeprivate);
 		
 		txtdocumentfilepath = new JTextField();
-		txtdocumentfilepath.setBounds(10, 50, 279, 20);
+		txtdocumentfilepath.setBounds(10, 50, 222, 20);
 		contentPanel.add(txtdocumentfilepath);
 		txtdocumentfilepath.setColumns(10);
 		{
