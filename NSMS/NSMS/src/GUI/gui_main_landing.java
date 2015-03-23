@@ -7,6 +7,7 @@ import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JMenu;
@@ -29,6 +30,7 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
 import net.miginfocom.swing.MigLayout;
+
 import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
 
@@ -107,7 +109,7 @@ public class gui_main_landing {
 		mnImport.setIcon(new_icon);
 		mnFile.add(mnImport);
 		
-		JMenuItem mntmImportTextDocument = new JMenuItem("Text Document          ");
+		JMenuItem mntmImportTextDocument = new JMenuItem("Text File      ");
 		mntmImportTextDocument.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -119,7 +121,7 @@ public class gui_main_landing {
 		mntmImportTextDocument.setIcon(entry_icon);
 		mnImport.add(mntmImportTextDocument);
 		
-		JMenuItem mntmImportPicture = new JMenuItem("Picture");
+		JMenuItem mntmImportPicture = new JMenuItem("Graphics File");
 		mntmImportPicture.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -129,6 +131,28 @@ public class gui_main_landing {
 			}
 		});
 		mnImport.add(mntmImportPicture);
+		
+		JMenuItem mntmNewMenuItem = new JMenuItem("PDF File");
+		mntmNewMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+								
+				add_pdf_menu pdf = new add_pdf_menu();
+				pdf.setVisible(true);
+				
+			}
+		});
+		mnImport.add(mntmNewMenuItem);
+		
+		JMenuItem mntmSpreadsheetFile = new JMenuItem("Spreadsheet File");
+		mntmSpreadsheetFile.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				add_spreadsheet_menu spreadsheet = new add_spreadsheet_menu();
+				spreadsheet.setVisible(true);
+				
+			}
+		});
+		mnImport.add(mntmSpreadsheetFile);
 		
 		JMenuItem mntmOpen = new JMenuItem("Open");
 		mntmOpen.setIcon(new ImageIcon(gui_main_landing.class.getResource("/javax/swing/plaf/metal/icons/ocean/upFolder.gif")));
@@ -226,7 +250,7 @@ public class gui_main_landing {
 		internalFrameBrowser.setVisible(true);
 		desktopPane.add(internalFrameBrowser, "cell 0 0 1 3,grow");
 		internalFrameBrowser.getContentPane().setLayout(new MigLayout("", "[]", "[]"));
-		
+				
 		JInternalFrame internalFrameMain = new JInternalFrame("Main");
 		internalFrameMain.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.GRAY, Color.WHITE));
 		internalFrameMain.setResizable(true);
