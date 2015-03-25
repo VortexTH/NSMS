@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JSeparator;
+import javax.swing.UIManager;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
@@ -51,6 +52,8 @@ public class gui_main_landing {
 					
 					gui_main_landing window = new gui_main_landing();
 					window.frmNsms.setVisible(true);
+					
+					//   UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 					
 					Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 					window.frmNsms.setBounds(0,0,screenSize.width, screenSize.height);				
@@ -248,7 +251,19 @@ public class gui_main_landing {
 		internalFrameBrowser.setFrameIcon(cheap_logo);
 		internalFrameBrowser.setVisible(true);
 		desktopPane.add(internalFrameBrowser, "cell 0 0 1 3,grow");
-		internalFrameBrowser.getContentPane().setLayout(new MigLayout("", "[]", "[]"));
+		internalFrameBrowser.getContentPane().setLayout(new MigLayout("", "[][][]", "[][][][][][][][]"));
+		
+		JButton btnCreateANew = new JButton("Create a Local Dir");
+		btnCreateANew.setToolTipText("Creates a Local directory to store all files, at a specific location on your system.");
+		btnCreateANew.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				new_parent_directory parentdir = new new_parent_directory();
+				parentdir.setVisible(true);
+				
+			}
+		});
+		internalFrameBrowser.getContentPane().add(btnCreateANew, "cell 0 6");
 				
 		JInternalFrame internalFrameMain = new JInternalFrame("Main");
 		internalFrameMain.setToolTipText("Your Viewing area");
