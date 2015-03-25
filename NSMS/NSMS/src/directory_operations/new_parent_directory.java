@@ -22,8 +22,8 @@ import java.io.File;
 
 public class new_parent_directory extends JDialog {
 	
-	
-    public String parentpath;
+	public String outputpath;
+
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtparentpath;
 
@@ -110,15 +110,19 @@ public class new_parent_directory extends JDialog {
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						
-						String outputpath;
+						
 						String name = ".NSMSParentdir";
 						outputpath = txtparentpath.getText();
 						
-						create_dir newdir = new create_dir(outputpath, name);								
+						@SuppressWarnings("unused")
+						create_dir newdir = new create_dir(outputpath, name);						
 						
+						//This opens course entry option:
+						new_course_directories entercourses = new new_course_directories();
+						entercourses.setVisible(true);
 						
 						dispose();
-						
+												
 					}
 				});
 				okButton.setActionCommand("OK");

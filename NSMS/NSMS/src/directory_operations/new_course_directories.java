@@ -1,33 +1,42 @@
-package NSMS.src.directory_operations;
+//package NSMS.src.directory_operations;
+package directory_operations;
+
+import directory_operations.new_parent_directory;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+
 import java.awt.Font;
+
 import javax.swing.JTextField;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
 public class new_course_directories extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_7;
-	private JTextField textField_8;
-	private JTextField textField_9;
-	private JTextField textField_10;
-	private JTextField textField_11;
-	private JTextField textField_12;
+	private JTextField txthl1;
+	private JTextField txthl2;
+	private JTextField txthl3;
+	private JTextField txthl4;
+	private JTextField txthl5;
+	private JTextField txthl6;
+	private JTextField txtsl1;
+	private JTextField txtsl2;
+	private JTextField txtsl3;
+	private JTextField txtsl4;
+	private JTextField txtsl5;
+	private JTextField txtsl6;
 
 	/**
 	 * Launch the application.
@@ -58,7 +67,7 @@ public class new_course_directories extends JDialog {
 			contentPanel.add(lblAddYourCourses);
 		}
 		
-		JLabel lblHighLevel = new JLabel("High Level");
+		JLabel lblHighLevel = new JLabel("Higher Level");
 		lblHighLevel.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		lblHighLevel.setBounds(69, 69, 78, 27);
 		contentPanel.add(lblHighLevel);
@@ -78,22 +87,22 @@ public class new_course_directories extends JDialog {
 			contentPanel.add(separator_1);
 		}
 		{
-			textField = new JTextField();
-			textField.setBounds(29, 107, 173, 20);
-			contentPanel.add(textField);
-			textField.setColumns(10);
+			txthl1 = new JTextField();
+			txthl1.setBounds(29, 107, 173, 20);
+			contentPanel.add(txthl1);
+			txthl1.setColumns(10);
 		}
 		{
-			textField_1 = new JTextField();
-			textField_1.setBounds(29, 138, 173, 20);
-			contentPanel.add(textField_1);
-			textField_1.setColumns(10);
+			txthl2 = new JTextField();
+			txthl2.setBounds(29, 138, 173, 20);
+			contentPanel.add(txthl2);
+			txthl2.setColumns(10);
 		}
 		{
-			textField_2 = new JTextField();
-			textField_2.setBounds(29, 169, 173, 20);
-			contentPanel.add(textField_2);
-			textField_2.setColumns(10);
+			txthl3 = new JTextField();
+			txthl3.setBounds(29, 169, 173, 20);
+			contentPanel.add(txthl3);
+			txthl3.setColumns(10);
 		}
 		{
 			JLabel label = new JLabel("1.)");
@@ -111,58 +120,58 @@ public class new_course_directories extends JDialog {
 			contentPanel.add(label);
 		}
 		{
-			textField_3 = new JTextField();
-			textField_3.setColumns(10);
-			textField_3.setBounds(29, 200, 173, 20);
-			contentPanel.add(textField_3);
+			txthl4 = new JTextField();
+			txthl4.setColumns(10);
+			txthl4.setBounds(29, 200, 173, 20);
+			contentPanel.add(txthl4);
 		}
 		{
-			textField_4 = new JTextField();
-			textField_4.setColumns(10);
-			textField_4.setBounds(29, 231, 173, 20);
-			contentPanel.add(textField_4);
+			txthl5 = new JTextField();
+			txthl5.setColumns(10);
+			txthl5.setBounds(29, 231, 173, 20);
+			contentPanel.add(txthl5);
 		}
 		{
-			textField_5 = new JTextField();
-			textField_5.setColumns(10);
-			textField_5.setBounds(29, 262, 173, 20);
-			contentPanel.add(textField_5);
+			txthl6 = new JTextField();
+			txthl6.setColumns(10);
+			txthl6.setBounds(29, 262, 173, 20);
+			contentPanel.add(txthl6);
 		}
 		{
-			textField_7 = new JTextField();
-			textField_7.setColumns(10);
-			textField_7.setBounds(251, 107, 173, 20);
-			contentPanel.add(textField_7);
+			txtsl1 = new JTextField();
+			txtsl1.setColumns(10);
+			txtsl1.setBounds(251, 107, 173, 20);
+			contentPanel.add(txtsl1);
 		}
 		{
-			textField_8 = new JTextField();
-			textField_8.setColumns(10);
-			textField_8.setBounds(251, 138, 173, 20);
-			contentPanel.add(textField_8);
+			txtsl2 = new JTextField();
+			txtsl2.setColumns(10);
+			txtsl2.setBounds(251, 138, 173, 20);
+			contentPanel.add(txtsl2);
 		}
 		{
-			textField_9 = new JTextField();
-			textField_9.setColumns(10);
-			textField_9.setBounds(251, 169, 173, 20);
-			contentPanel.add(textField_9);
+			txtsl3 = new JTextField();
+			txtsl3.setColumns(10);
+			txtsl3.setBounds(251, 169, 173, 20);
+			contentPanel.add(txtsl3);
 		}
 		{
-			textField_10 = new JTextField();
-			textField_10.setColumns(10);
-			textField_10.setBounds(251, 200, 173, 20);
-			contentPanel.add(textField_10);
+			txtsl4 = new JTextField();
+			txtsl4.setColumns(10);
+			txtsl4.setBounds(251, 200, 173, 20);
+			contentPanel.add(txtsl4);
 		}
 		{
-			textField_11 = new JTextField();
-			textField_11.setColumns(10);
-			textField_11.setBounds(251, 231, 173, 20);
-			contentPanel.add(textField_11);
+			txtsl5 = new JTextField();
+			txtsl5.setColumns(10);
+			txtsl5.setBounds(251, 231, 173, 20);
+			contentPanel.add(txtsl5);
 		}
 		{
-			textField_12 = new JTextField();
-			textField_12.setColumns(10);
-			textField_12.setBounds(251, 262, 173, 20);
-			contentPanel.add(textField_12);
+			txtsl6 = new JTextField();
+			txtsl6.setColumns(10);
+			txtsl6.setBounds(251, 262, 173, 20);
+			contentPanel.add(txtsl6);
 		}
 		{
 			JLabel label = new JLabel("4.)");
@@ -215,12 +224,171 @@ public class new_course_directories extends JDialog {
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton okButton = new JButton("OK");
+				okButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						
+						boolean hl1 = false;
+						boolean hl2 = false;
+						boolean hl3 = false;
+						boolean hl4 = false;
+						boolean hl5 = false;
+						boolean hl6 = false;
+						
+						boolean sl1 = false;
+						boolean sl2 = false;
+						boolean sl3 = false;
+						boolean sl4 = false;
+						boolean sl5 = false;
+						boolean sl6 = false;
+						
+						//Accesses parentdir filepath string from new parent dir class
+						new_parent_directory parentdirclass = new new_parent_directory();						
+						String theoutputpath = parentdirclass.outputpath;
+						
+						
+						String parentpath = theoutputpath + "\\" + ".NSMSParentdir";
+						
+						
+						
+						
+						        //This checks if fields are filled out
+								if (txthl1.getText().length() > 0){
+									hl1 = true;
+									}
+								
+								if (txthl2.getText().length() > 0){
+									hl2 = true;
+									}
+								
+								if (txthl3.getText().length() > 0){
+									hl3 = true;
+									}
+								
+								if (txthl4.getText().length() > 0){
+									hl4 = true;
+									}
+								
+								if (txthl5.getText().length() > 0){
+									hl5 = true;
+									}
+								
+								if (txthl6.getText().length() > 0){
+									hl6 = true;
+									}
+								
+								if (txtsl1.getText().length() > 0){
+									sl1 = true;
+									}
+								
+								if (txtsl2.getText().length() > 0){
+									sl2 = true;
+									}
+								
+								if (txtsl3.getText().length() > 0){
+									sl3 = true;
+									}
+								
+								if (txtsl4.getText().length() > 0){
+									sl4 = true;
+									}
+								
+								if (txtsl5.getText().length() > 0){
+									sl5 = true;
+									}
+								
+								if (txtsl6.getText().length() > 0){
+									sl6 = true;
+									}
+								
+								
+								
+								//This calls the create_dir class for any filled out fields
+								if (hl1 = true){
+									String hl1subj = txthl1.getText().toUpperCase() + " HL"; 
+									create_dir newcoursedir = new create_dir(parentpath, hl1subj);
+									}
+								
+								if (hl2 = true){
+									String hl2subj = txthl1.getText().toUpperCase() + " HL"; 
+									create_dir newcoursedir = new create_dir(parentpath, hl2subj);
+									}
+								
+								if (hl3 = true){
+									String hl3subj = txthl1.getText().toUpperCase() + " HL";
+									create_dir newcoursedir = new create_dir(parentpath, hl3subj);
+									}
+								
+								if (hl4 = true){
+									String hl4subj = txthl1.getText().toUpperCase() + " HL";
+									create_dir newcoursedir = new create_dir(parentpath,  hl4subj);
+									}
+								
+								if (hl5 = true){
+									String hl5subj = txthl1.getText().toUpperCase() + " HL"; 
+									create_dir newcoursedir = new create_dir(parentpath, hl5subj);
+									}
+								
+								if (hl6 = true){
+									String hl6subj = txthl1.getText().toUpperCase() + " HL";
+									create_dir newcoursedir = new create_dir(parentpath, hl6subj);
+									}
+								
+								if (sl1 = true){
+									String sl1subj = txtsl1.getText().toUpperCase() + " SL";
+									create_dir newcoursedir = new create_dir(parentpath, sl1subj);
+									}
+								
+								if (sl2 = true){
+									String sl2subj = txtsl1.getText().toUpperCase() + " SL";
+									create_dir newcoursedir = new create_dir(parentpath, sl2subj);
+									}
+								
+								if (sl3 = true){
+									String sl3subj = txtsl1.getText().toUpperCase() + " SL";
+									create_dir newcoursedir = new create_dir(parentpath, sl3subj);
+									}
+								
+								if (sl4 = true){
+									String sl4subj = txtsl1.getText().toUpperCase() + " SL";
+									create_dir newcoursedir = new create_dir(parentpath, sl4subj);
+									}
+								
+								if (sl5 = true){
+									String sl5subj = txtsl1.getText().toUpperCase() + " SL";
+									create_dir newcoursedir = new create_dir(parentpath, sl5subj);
+									}
+								
+								if (sl6 = true){
+									String sl6subj = txtsl1.getText().toUpperCase() + " SL";
+									create_dir newcoursedir = new create_dir(parentpath, sl6subj);
+									}
+								
+								
+								
+							JOptionPane.showConfirmDialog(okButton, "Classes have been added!");
+							
+							dispose();						
+						
+					}
+				});
+				okButton.setToolTipText("This will create several child directories that will contain all your material");
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
 			}
 			{
 				JButton cancelButton = new JButton("Cancel");
+				cancelButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						
+						int optionreturn = JOptionPane.showConfirmDialog(null, "Are you sure you want to cancel the operation?");	
+						
+						if(optionreturn == JOptionPane.YES_OPTION){
+							dispose();
+						}
+						
+					}
+				});
 				cancelButton.setActionCommand("Cancel");
 				buttonPane.add(cancelButton);
 			}
