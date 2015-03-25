@@ -1,6 +1,5 @@
-package NSMS.src.GUI;
+package directory_operations;
 
-import directory_operations.create_dir;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
@@ -112,7 +111,7 @@ public class new_parent_directory extends JDialog {
 					public void actionPerformed(ActionEvent e) {
 						
 						String outputpath;
-						String name = "NSMS_Parentdir";
+						String name = ".NSMSParentdir";
 						outputpath = txtparentpath.getText();
 						
 						create_dir newdir = new create_dir(outputpath, name);								

@@ -35,6 +35,8 @@ import net.miginfocom.swing.MigLayout;
 import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
 
+import directory_operations.new_parent_directory;
+
 //import GUI.gui_main_landing;
 //import chat.chat_gui;
 
@@ -258,8 +260,8 @@ public class gui_main_landing {
 		btnCreateANew.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				new_parent_directory parentdir = new new_parent_directory();
-				parentdir.setVisible(true);
+				new_parent_directory newparentdir = new new_parent_directory();
+				newparentdir.setVisible(true);
 				
 			}
 		});
