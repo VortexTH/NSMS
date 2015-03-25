@@ -1,4 +1,4 @@
-package NSMS.src.GUI;
+package NSMS.src.directory_operations;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;

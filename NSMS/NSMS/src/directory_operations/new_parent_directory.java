@@ -16,8 +16,6 @@ import java.awt.Font;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 
-import NSMS.src.GUI.new_course_directories;
-
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.io.File;
@@ -118,8 +116,6 @@ public class new_parent_directory extends JDialog {
 						
 						create_dir newdir = new create_dir(outputpath, name);								
 						
-						new_course_directories addcourses = new new_course_directories();
-						addcourses.setVisible(true);
 						
 						dispose();
 						
