@@ -16,6 +16,8 @@ import java.awt.Font;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 
+import NSMS.src.GUI.new_course_directories;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.io.File;
