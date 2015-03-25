@@ -1,4 +1,4 @@
-package dir_operations;
+package directory_operations;
 
 import java.io.File;
 
@@ -21,7 +21,7 @@ public class create_dir {
 		  }
 		
 		else{
-			JOptionPane.showMessageDialog(null, "A directory already exists at this location, it will be imported!");
+			JOptionPane.showMessageDialog(null, "A directory already exists in this location!");
 		    }
 		 
 		

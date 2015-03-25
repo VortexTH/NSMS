@@ -1,6 +1,6 @@
 package NSMS.src.GUI;
 
-import NSMS.dir_operations.*;
+import directory_operations.create_dir;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
@@ -22,6 +22,7 @@ import java.awt.event.ActionEvent;
 import java.io.File;
 
 public class new_parent_directory extends JDialog {
+	
 	
     public String parentpath;
 	private final JPanel contentPanel = new JPanel();
@@ -111,22 +112,12 @@ public class new_parent_directory extends JDialog {
 					public void actionPerformed(ActionEvent e) {
 						
 						String outputpath;
-						
-						
+						String name = "NSMS_Parentdir";
 						outputpath = txtparentpath.getText();
 						
-						parentpath = outputpath + "\\NSMS_ParentDir";
+						create_dir newdir = new create_dir(outputpath, name);								
 						
-						File parentdir = new File(parentpath);
 						
-						if (!parentdir.exists()){				
-						  parentdir.mkdir();
-						  }
-						
-						else{
-							JOptionPane.showMessageDialog(null, "An NSMS Parent Folder already exists in this location! It will be imported!");
-						    }
-						 
 						dispose();
 						
 					}
