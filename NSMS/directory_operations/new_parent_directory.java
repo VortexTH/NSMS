@@ -116,6 +116,8 @@ public class new_parent_directory extends JDialog {
 						
 						create_dir newdir = new create_dir(outputpath, name);								
 						
+						new_course_directories addcourses = new new_course_directories();
+						addcourses.setVisible(true);
 						
 						dispose();
 						
