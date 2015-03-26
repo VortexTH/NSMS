@@ -35,7 +35,9 @@ import net.miginfocom.swing.MigLayout;
 import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
 
-import directory_operations.new_parent_directory;
+//import directory_operations.new_parent_directory;
+import NSMS.src.directory_operations.*;
+
 
 //import GUI.gui_main_landing;
 //import chat.chat_gui;

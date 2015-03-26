@@ -1,4 +1,5 @@
-package directory_operations;
+//package directory_operations;
+package NSMS.src.directory_operations;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -23,6 +24,7 @@ import java.io.File;
 public class new_parent_directory extends JDialog {
 	
 	public String outputpath;
+	public String parentpath;
 
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtparentpath;
@@ -111,11 +113,17 @@ public class new_parent_directory extends JDialog {
 					public void actionPerformed(ActionEvent e) {
 						
 						
-						String name = ".NSMSParentdir";
+						String name = ".NSMS";
+						String parentname = "ParentDir";
 						outputpath = txtparentpath.getText();
+						parentpath = outputpath + "\\.NSMS";
 						
 						@SuppressWarnings("unused")
-						create_dir newdir = new create_dir(outputpath, name);						
+						general_operations newdir = new general_operations();
+						
+						newdir.new_dir(outputpath, name);
+						newdir.new_dir(parentpath, parentname);
+						
 						
 						//This opens course entry option:
 						new_course_directories entercourses = new new_course_directories();

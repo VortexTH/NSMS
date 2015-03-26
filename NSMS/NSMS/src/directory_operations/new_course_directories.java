@@ -1,7 +1,8 @@
-//package NSMS.src.directory_operations;
-package directory_operations;
+package NSMS.src.directory_operations;
+//package directory_operations;
 
-import directory_operations.new_parent_directory;
+//import directory_operations.new_parent_directory;
+import NSMS.src.directory_operations.new_parent_directory;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -243,12 +244,12 @@ public class new_course_directories extends JDialog {
 						
 						//Accesses parentdir filepath string from new parent dir class
 						new_parent_directory parentdirclass = new new_parent_directory();						
-						String theoutputpath = parentdirclass.outputpath;
-						
+						String theoutputpath = parentdirclass.outputpath;						
 						
 						String parentpath = theoutputpath + "\\" + ".NSMSParentdir";
 						
-						
+						//accesses general operations class for new_dir method
+						general_operations newdir = new general_operations ();
 						
 						
 						        //This checks if fields are filled out
@@ -305,67 +306,67 @@ public class new_course_directories extends JDialog {
 								//This calls the create_dir class for any filled out fields
 								if (hl1 = true){
 									String hl1subj = txthl1.getText().toUpperCase() + " HL"; 
-									create_dir newcoursedir = new create_dir(parentpath, hl1subj);
+									newdir.new_dir(parentpath, hl1subj);
 									}
 								
 								if (hl2 = true){
 									String hl2subj = txthl1.getText().toUpperCase() + " HL"; 
-									create_dir newcoursedir = new create_dir(parentpath, hl2subj);
+									newdir.new_dir(parentpath, hl2subj);
 									}
 								
 								if (hl3 = true){
 									String hl3subj = txthl1.getText().toUpperCase() + " HL";
-									create_dir newcoursedir = new create_dir(parentpath, hl3subj);
+									newdir.new_dir(parentpath, hl3subj);
 									}
 								
 								if (hl4 = true){
 									String hl4subj = txthl1.getText().toUpperCase() + " HL";
-									create_dir newcoursedir = new create_dir(parentpath,  hl4subj);
+									newdir.new_dir(parentpath,  hl4subj);
 									}
 								
 								if (hl5 = true){
 									String hl5subj = txthl1.getText().toUpperCase() + " HL"; 
-									create_dir newcoursedir = new create_dir(parentpath, hl5subj);
+									newdir.new_dir(parentpath, hl5subj);
 									}
 								
 								if (hl6 = true){
 									String hl6subj = txthl1.getText().toUpperCase() + " HL";
-									create_dir newcoursedir = new create_dir(parentpath, hl6subj);
+									newdir.new_dir(parentpath, hl6subj);
 									}
 								
 								if (sl1 = true){
 									String sl1subj = txtsl1.getText().toUpperCase() + " SL";
-									create_dir newcoursedir = new create_dir(parentpath, sl1subj);
+									newdir.new_dir(parentpath, sl1subj);
 									}
 								
 								if (sl2 = true){
 									String sl2subj = txtsl1.getText().toUpperCase() + " SL";
-									create_dir newcoursedir = new create_dir(parentpath, sl2subj);
+									create_dir newcoursedir8 = new create_dir(parentpath, sl2subj);
 									}
 								
 								if (sl3 = true){
 									String sl3subj = txtsl1.getText().toUpperCase() + " SL";
-									create_dir newcoursedir = new create_dir(parentpath, sl3subj);
+									newdir.new_dir(parentpath, sl3subj);
 									}
 								
 								if (sl4 = true){
 									String sl4subj = txtsl1.getText().toUpperCase() + " SL";
-									create_dir newcoursedir = new create_dir(parentpath, sl4subj);
+									newdir.new_dir(parentpath, sl4subj);
 									}
 								
 								if (sl5 = true){
 									String sl5subj = txtsl1.getText().toUpperCase() + " SL";
-									create_dir newcoursedir = new create_dir(parentpath, sl5subj);
+									newdir.new_dir(parentpath, sl5subj);
 									}
 								
 								if (sl6 = true){
 									String sl6subj = txtsl1.getText().toUpperCase() + " SL";
-									create_dir newcoursedir = new create_dir(parentpath, sl6subj);
+									newdir.new_dir(parentpath, sl6subj);
 									}
 								
 								
 								
-							JOptionPane.showConfirmDialog(okButton, "Classes have been added!");
+							JOptionPane.showMessageDialog(null, "Classes have been added!");
 							
 							dispose();						
 						
