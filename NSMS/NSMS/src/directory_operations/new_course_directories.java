@@ -226,6 +226,7 @@ public class new_course_directories extends JDialog {
 			{
 				JButton okButton = new JButton("OK");
 				okButton.addActionListener(new ActionListener() {
+					@SuppressWarnings("unused")
 					public void actionPerformed(ActionEvent arg0) {
 						
 						boolean hl1 = false;
@@ -242,11 +243,13 @@ public class new_course_directories extends JDialog {
 						boolean sl5 = false;
 						boolean sl6 = false;
 						
+						
+						//TODO find mistake here!!!!
 						//Accesses parentdir filepath string from new parent dir class
 						new_parent_directory parentdirclass = new new_parent_directory();						
 						String theoutputpath = parentdirclass.outputpath;						
 						
-						String parentpath = theoutputpath + "\\" + ".NSMSParentdir";
+						String parentpath = theoutputpath + "\\" + ".NSMS" + "\\ParentDir";
 						
 						//accesses general operations class for new_dir method
 						general_operations newdir = new general_operations ();
@@ -341,7 +344,7 @@ public class new_course_directories extends JDialog {
 								
 								if (sl2 = true){
 									String sl2subj = txtsl1.getText().toUpperCase() + " SL";
-									create_dir newcoursedir8 = new create_dir(parentpath, sl2subj);
+									newdir.new_dir(parentpath, sl2subj);
 									}
 								
 								if (sl3 = true){

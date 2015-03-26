@@ -112,9 +112,10 @@ public class new_parent_directory extends JDialog {
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						
-						
+						//initiates varibales containing file names
 						String name = ".NSMS";
 						String parentname = "ParentDir";
+						
 						outputpath = txtparentpath.getText();
 						parentpath = outputpath + "\\.NSMS";
 						
@@ -122,8 +123,7 @@ public class new_parent_directory extends JDialog {
 						general_operations newdir = new general_operations();
 						
 						newdir.new_dir(outputpath, name);
-						newdir.new_dir(parentpath, parentname);
-						
+						newdir.new_dir(parentpath, parentname);						
 						
 						//This opens course entry option:
 						new_course_directories entercourses = new new_course_directories();
