@@ -244,7 +244,7 @@ public class gui_main_landing {
 		});
 		
 		JDesktopPane desktopPane = new JDesktopPane();
-		desktopPane.setBackground(new Color(143, 188, 143));
+		desktopPane.setBackground(Color.GRAY);
 		frmNsms.getContentPane().add(desktopPane, "cell 0 1,grow");
 		desktopPane.setLayout(new MigLayout("", "[407px][1470.00px]", "[651px][13px][308.00px]"));
 		

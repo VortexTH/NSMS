@@ -25,6 +25,7 @@ public class new_parent_directory extends JDialog {
 	
 	public String outputpath;
 	public String parentpath;
+	public String output = "a";
 
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtparentpath;
@@ -138,6 +139,7 @@ public class new_parent_directory extends JDialog {
 				getRootPane().setDefaultButton(okButton);
 			}
 			{
+				
 				JButton cancelButton = new JButton("Cancel");
 				cancelButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
@@ -150,5 +152,15 @@ public class new_parent_directory extends JDialog {
 				buttonPane.add(cancelButton);
 			}
 		}
+				
+		
 	}
+	
+	public String renameoutputpath (){
+		
+		output = outputpath; 		
+		return output;
+	}
+	
+	
 }

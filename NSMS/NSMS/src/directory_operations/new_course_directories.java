@@ -246,8 +246,12 @@ public class new_course_directories extends JDialog {
 						
 						//TODO find mistake here!!!!
 						//Accesses parentdir filepath string from new parent dir class
-						new_parent_directory parentdirclass = new new_parent_directory();						
-						String theoutputpath = parentdirclass.outputpath;						
+						new_parent_directory parentdirclass = new new_parent_directory();					
+											
+						String theoutputpath = parentdirclass.renameoutputpath();
+						
+						JOptionPane.showMessageDialog(null, theoutputpath);
+						
 						
 						String parentpath = theoutputpath + "\\" + ".NSMS" + "\\ParentDir";
 						
