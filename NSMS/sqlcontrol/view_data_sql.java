@@ -1,4 +1,4 @@
-package NSMS.src.sqlcontrol;
+package sqlcontrol;
 
 public class view_data_sql {
 

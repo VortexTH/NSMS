@@ -1,4 +1,4 @@
-package GUI;
+package Unused_code;
 
 import chat.chat_gui;
 

@@ -1,4 +1,4 @@
-package NSMS.src.sqlcontrol;
+package sqlcontrol;
 
 public class remove_entry_sql {
 

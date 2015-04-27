@@ -1,4 +1,4 @@
-package NSMS.src.sqlcontrol;
+package sqlcontrol;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

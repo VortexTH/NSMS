@@ -1,5 +1,5 @@
 //package directory_operations;
-package NSMS.src.directory_operations;
+package directory_operations;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -53,7 +53,7 @@ public class new_parent_directory extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		
-		JLabel lblThisWillCreate = new JLabel("<html>This will create a new Folder in your machine's home directory, which will ultimately contain your LOCAL NSMS file-system and serve as a storage for all imported files. If you want to specify a different location for the NSSM Parent folder, do so below:</html>");
+		JLabel lblThisWillCreate = new JLabel("<html>This will create a new Folder in your machine's home directory, which will ultimately contain your LOCAL NSMS file-system and serve as a storage for all imported files.</html>");
 		lblThisWillCreate.setBounds(10, 57, 414, 77);
 		contentPanel.add(lblThisWillCreate);
 		{
@@ -68,40 +68,15 @@ public class new_parent_directory extends JDialog {
 		contentPanel.add(separator);
 		
 		txtparentpath = new JTextField();
+		txtparentpath.setEditable(false);
 		txtparentpath.setBounds(10, 259, 292, 20);
 		contentPanel.add(txtparentpath);
 		txtparentpath.setColumns(10);
 		
+		//sets the text of this jtextfield to the current user's home directory
 		txtparentpath.setText(System.getProperty("user.home"));
 		
-		JButton btnBrowse = new JButton("Browse");
-		btnBrowse.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				JFileChooser chooseparentpath = new JFileChooser();
-				chooseparentpath.setCurrentDirectory(new File(System.getProperty("user.home")));
-				chooseparentpath.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-				chooseparentpath.setAcceptAllFileFilterUsed(false);
-				
-				int selection = chooseparentpath.showOpenDialog(null);		
-				
-				   if(selection == JFileChooser.APPROVE_OPTION){
-					   txtparentpath.setText(chooseparentpath.getSelectedFile().getAbsolutePath());
-			        	
-			          }
-			      
-			        else if (selection == JFileChooser.CANCEL_OPTION){
-			           txtparentpath.setText(System.getProperty("user.home"));
-			          }
-		          
-				
-				
-			}
-		});
-		btnBrowse.setBounds(312, 258, 89, 23);
-		contentPanel.add(btnBrowse);
-		
-		JLabel lblCustomLocationwill = new JLabel("Custom Location (Will set to default when left empty)");
+		JLabel lblCustomLocationwill = new JLabel("This is the location the directory will be created in:");
 		lblCustomLocationwill.setBounds(10, 234, 391, 14);
 		contentPanel.add(lblCustomLocationwill);
 		{
@@ -113,10 +88,11 @@ public class new_parent_directory extends JDialog {
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						
-						//initiates varibales containing file names
+						//initiates variables containing file names
 						String name = ".NSMS";
 						String parentname = "ParentDir";
 						
+						//did this to keep the option of including custom dir functionality later
 						outputpath = txtparentpath.getText();
 						parentpath = outputpath + "\\.NSMS";
 						

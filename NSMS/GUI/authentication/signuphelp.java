@@ -1,4 +1,4 @@
-package NSMS.src.GUI.authentication;
+package GUI.authentication;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;

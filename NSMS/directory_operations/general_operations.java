@@ -1,6 +1,6 @@
 //package directory_operations;
 
-package NSMS.src.directory_operations;
+package directory_operations;
 
 import java.io.File;
 

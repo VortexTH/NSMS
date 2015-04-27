@@ -1,8 +1,8 @@
-package NSMS.src.directory_operations;
+package directory_operations;
 //package directory_operations;
 
 //import directory_operations.new_parent_directory;
-import NSMS.src.directory_operations.new_parent_directory;
+import directory_operations.new_parent_directory;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -229,6 +229,8 @@ public class new_course_directories extends JDialog {
 					@SuppressWarnings("unused")
 					public void actionPerformed(ActionEvent arg0) {
 						
+						//TODO FIND THE GODDAMN ERROR HERE!!!
+						
 						boolean hl1 = false;
 						boolean hl2 = false;
 						boolean hl3 = false;
@@ -244,22 +246,26 @@ public class new_course_directories extends JDialog {
 						boolean sl6 = false;
 						
 						
-						//TODO find mistake here!!!!
+						//TODO find mistake here!!!! Current solution should remain temp only!
 						//Accesses parentdir filepath string from new parent dir class
-						new_parent_directory parentdirclass = new new_parent_directory();					
+						/*new_parent_directory parentdirclass = new new_parent_directory();					
 											
 						String theoutputpath = parentdirclass.renameoutputpath();
 						
-						JOptionPane.showMessageDialog(null, theoutputpath);
+						//just for testing purposes.
+						JOptionPane.showMessageDialog(null, theoutputpath);*/
 						
+						String theoutputpath = System.getProperty("user.home");
 						
-						String parentpath = theoutputpath + "\\" + ".NSMS" + "\\ParentDir";
+						String parentpath = theoutputpath + "\\" + ".NSMS" + "\\ParentDir\\";
+						
+						JOptionPane.showMessageDialog(null, parentpath);
 						
 						//accesses general operations class for new_dir method
-						general_operations newdir = new general_operations ();
+						general_operations newdir = new general_operations();
 						
 						
-						        //This checks if fields are filled out
+						        //This checks if fields contain String values to avoid empty fields.
 								if (txthl1.getText().length() > 0){
 									hl1 = true;
 									}
@@ -312,62 +318,62 @@ public class new_course_directories extends JDialog {
 								
 								//This calls the create_dir class for any filled out fields
 								if (hl1 = true){
-									String hl1subj = txthl1.getText().toUpperCase() + " HL"; 
+									String hl1subj = txthl1.getText().toUpperCase() + "_HL"; 
 									newdir.new_dir(parentpath, hl1subj);
 									}
 								
 								if (hl2 = true){
-									String hl2subj = txthl1.getText().toUpperCase() + " HL"; 
+									String hl2subj = txthl2.getText().toUpperCase() + "_HL"; 
 									newdir.new_dir(parentpath, hl2subj);
 									}
 								
 								if (hl3 = true){
-									String hl3subj = txthl1.getText().toUpperCase() + " HL";
+									String hl3subj = txthl3.getText().toUpperCase() + "_HL";
 									newdir.new_dir(parentpath, hl3subj);
 									}
 								
 								if (hl4 = true){
-									String hl4subj = txthl1.getText().toUpperCase() + " HL";
+									String hl4subj = txthl4.getText().toUpperCase() + "_HL";
 									newdir.new_dir(parentpath,  hl4subj);
 									}
 								
 								if (hl5 = true){
-									String hl5subj = txthl1.getText().toUpperCase() + " HL"; 
+									String hl5subj = txthl5.getText().toUpperCase() + "_HL"; 
 									newdir.new_dir(parentpath, hl5subj);
 									}
 								
 								if (hl6 = true){
-									String hl6subj = txthl1.getText().toUpperCase() + " HL";
+									String hl6subj = txthl6.getText().toUpperCase() + "_HL";
 									newdir.new_dir(parentpath, hl6subj);
 									}
 								
 								if (sl1 = true){
-									String sl1subj = txtsl1.getText().toUpperCase() + " SL";
+									String sl1subj = txtsl1.getText().toUpperCase() + "_SL";
 									newdir.new_dir(parentpath, sl1subj);
 									}
 								
 								if (sl2 = true){
-									String sl2subj = txtsl1.getText().toUpperCase() + " SL";
+									String sl2subj = txtsl2.getText().toUpperCase() + "_SL";
 									newdir.new_dir(parentpath, sl2subj);
 									}
 								
 								if (sl3 = true){
-									String sl3subj = txtsl1.getText().toUpperCase() + " SL";
+									String sl3subj = txtsl3.getText().toUpperCase() + "_SL";
 									newdir.new_dir(parentpath, sl3subj);
 									}
 								
 								if (sl4 = true){
-									String sl4subj = txtsl1.getText().toUpperCase() + " SL";
+									String sl4subj = txtsl4.getText().toUpperCase() + "_SL";
 									newdir.new_dir(parentpath, sl4subj);
 									}
 								
 								if (sl5 = true){
-									String sl5subj = txtsl1.getText().toUpperCase() + " SL";
+									String sl5subj = txtsl5.getText().toUpperCase() + "_SL";
 									newdir.new_dir(parentpath, sl5subj);
 									}
 								
 								if (sl6 = true){
-									String sl6subj = txtsl1.getText().toUpperCase() + " SL";
+									String sl6subj = txtsl6.getText().toUpperCase() + "_SL";
 									newdir.new_dir(parentpath, sl6subj);
 									}
 								
@@ -389,11 +395,19 @@ public class new_course_directories extends JDialog {
 				cancelButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						
-						int optionreturn = JOptionPane.showConfirmDialog(null, "Are you sure you want to cancel the operation?");	
+						int optionreturn = JOptionPane.showConfirmDialog(null, "Are you sure you want to cancel the operation? All changes will be lost!");	
 						
-						if(optionreturn == JOptionPane.YES_OPTION){
+						//TODO WHY DOESNT THIS WORK? FIND OUT!
+						if(optionreturn == JOptionPane.YES_OPTION){							
+							//this calls the rmdir method from the general operations class
+							general_operations rmdir = new general_operations();
+							
+							String delpath = System.getProperty("user.home");
+							
+							//this deletes the .NSMS directory that was just created (hopefully)!!
+							rmdir.delete_dir(delpath, ".NSMS");							
 							dispose();
-						}
+							}						
 						
 					}
 				});
