@@ -8,78 +8,84 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
+
+import sqlcontrol.SQLite_tt_connector;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 
 public class Jtable_input_gui extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
-	private JTextField textField_8;
-	private JTextField textField_9;
-	private JTextField textField_10;
-	private JTextField textField_11;
-	private JTextField textField_12;
-	private JTextField textField_13;
-	private JTextField textField_14;
-	private JTextField textField_15;
-	private JTextField textField_16;
-	private JTextField textField_17;
-	private JTextField textField_18;
-	private JTextField textField_19;
-	private JTextField textField_20;
-	private JTextField textField_21;
-	private JTextField textField_22;
-	private JTextField textField_23;
-	private JTextField textField_24;
-	private JTextField textField_25;
-	private JTextField textField_26;
-	private JTextField textField_27;
-	private JTextField textField_28;
-	private JTextField textField_29;
-	private JTextField textField_30;
-	private JTextField textField_31;
-	private JTextField textField_32;
-	private JTextField textField_33;
-	private JTextField textField_34;
-	private JTextField textField_35;
-	private JTextField textField_36;
-	private JTextField textField_37;
-	private JTextField textField_38;
-	private JTextField textField_39;
-	private JTextField textField_40;
-	private JTextField textField_41;
-	private JTextField textField_42;
-	private JTextField textField_43;
-	private JTextField textField_44;
-	private JTextField textField_45;
-	private JTextField textField_46;
-	private JTextField textField_47;
-	private JTextField textField_48;
-	private JTextField textField_49;
-	private JTextField textField_50;
-	private JTextField textField_51;
-	private JTextField textField_52;
-	private JTextField textField_53;
-	private JTextField textField_54;
-	private JTextField textField_55;
-	private JTextField textField_56;
-	private JTextField textField_57;
-	private JTextField textField_58;
-	private JTextField textField_59;
-	private JTextField textField_60;
-	private JTextField textField_61;
-	private JTextField textField_62;
+	private JTextField txtmon1;
+	private JTextField txtmon2;
+	private JTextField txtmon3;
+	private JTextField txtmon4;
+	private JTextField txtmon5;
+	private JTextField txtmon6;
+	private JTextField txtmon7;
+	private JTextField txtmon8;
+	private JTextField txtmon9;
+	private JTextField txttue1;
+	private JTextField txttue2;
+	private JTextField txttue3;
+	private JTextField txttue4;
+	private JTextField txttue5;
+	private JTextField txttue6;
+	private JTextField txttue7;
+	private JTextField txttue8;
+	private JTextField txttue9;
+	private JTextField txtwed1;
+	private JTextField txtwed2;
+	private JTextField txtwed3;
+	private JTextField txtwed4;
+	private JTextField txtwed5;
+	private JTextField txtwed6;
+	private JTextField txtwed7;
+	private JTextField txtwed8;
+	private JTextField txtwed9;
+	private JTextField txtthu1;
+	private JTextField txtthu2;
+	private JTextField txtthu3;
+	private JTextField txtthu4;
+	private JTextField txtthu5;
+	private JTextField txtthu6;
+	private JTextField txtthu7;
+	private JTextField txtthu8;
+	private JTextField txtthu9;
+	private JTextField txtfr1;
+	private JTextField txtfr2;
+	private JTextField txtfr3;
+	private JTextField txtfr4;
+	private JTextField txtfr5;
+	private JTextField txtfr6;
+	private JTextField txtfr7;
+	private JTextField txtfr8;
+	private JTextField txtfr9;
+	private JTextField txtsat1;
+	private JTextField txtsat2;
+	private JTextField txtsat3;
+	private JTextField txtsat4;
+	private JTextField txtsat5;
+	private JTextField txtsat6;
+	private JTextField txtsat7;
+	private JTextField txtsat8;
+	private JTextField txtsat9;
+	private JTextField txtsun1;
+	private JTextField txtsun2;
+	private JTextField txtsun3;
+	private JTextField txtsun4;
+	private JTextField txtsun5;
+	private JTextField txtsun6;
+	private JTextField txtsun7;
+	private JTextField txtsun8;
+	private JTextField txtsun9;
 
 	/**
 	 * Launch the application.
@@ -97,6 +103,10 @@ public class Jtable_input_gui extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
+	
+	Connection ttconnection = null;
+	
+	
 	public Jtable_input_gui() {
 		setBounds(100, 100, 450, 535);
 		getContentPane().setLayout(new BorderLayout());
@@ -124,12 +134,17 @@ public class Jtable_input_gui extends JDialog {
 		lblPeriod.setBounds(10, 11, 46, 14);
 		panel.add(lblPeriod);
 		
-		textField = new JTextField();
-		textField.setBounds(66, 8, 239, 20);
-		panel.add(textField);
-		textField.setColumns(10);
+		txtmon1 = new JTextField();
+		txtmon1.setBounds(66, 8, 239, 20);
+		panel.add(txtmon1);
+		txtmon1.setColumns(10);
 		
 		JButton btnFree = new JButton("Free");
+		btnFree.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtmon1.setText("FREE");
+			}
+		});
 		btnFree.setBounds(310, 7, 89, 23);
 		panel.add(btnFree);
 		
@@ -137,10 +152,10 @@ public class Jtable_input_gui extends JDialog {
 		lblPeriod_1.setBounds(10, 40, 46, 14);
 		panel.add(lblPeriod_1);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(66, 37, 239, 20);
-		panel.add(textField_1);
+		txtmon2 = new JTextField();
+		txtmon2.setColumns(10);
+		txtmon2.setBounds(66, 37, 239, 20);
+		panel.add(txtmon2);
 		
 		JButton button = new JButton("Free");
 		button.setBounds(310, 36, 89, 23);
@@ -150,10 +165,10 @@ public class Jtable_input_gui extends JDialog {
 		lblPeriod_2.setBounds(10, 69, 46, 14);
 		panel.add(lblPeriod_2);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(66, 66, 239, 20);
-		panel.add(textField_2);
+		txtmon3 = new JTextField();
+		txtmon3.setColumns(10);
+		txtmon3.setBounds(66, 66, 239, 20);
+		panel.add(txtmon3);
 		
 		JButton button_1 = new JButton("Free");
 		button_1.setBounds(310, 65, 89, 23);
@@ -163,10 +178,10 @@ public class Jtable_input_gui extends JDialog {
 		lblPeriod_3.setBounds(10, 98, 46, 14);
 		panel.add(lblPeriod_3);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(66, 95, 239, 20);
-		panel.add(textField_3);
+		txtmon4 = new JTextField();
+		txtmon4.setColumns(10);
+		txtmon4.setBounds(66, 95, 239, 20);
+		panel.add(txtmon4);
 		
 		JButton button_2 = new JButton("Free");
 		button_2.setBounds(310, 94, 89, 23);
@@ -176,10 +191,10 @@ public class Jtable_input_gui extends JDialog {
 		lblPeriod_4.setBounds(10, 127, 46, 14);
 		panel.add(lblPeriod_4);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(66, 124, 239, 20);
-		panel.add(textField_4);
+		txtmon5 = new JTextField();
+		txtmon5.setColumns(10);
+		txtmon5.setBounds(66, 124, 239, 20);
+		panel.add(txtmon5);
 		
 		JButton button_3 = new JButton("Free");
 		button_3.setBounds(310, 123, 89, 23);
@@ -189,10 +204,10 @@ public class Jtable_input_gui extends JDialog {
 		lblPeriod_5.setBounds(10, 156, 46, 14);
 		panel.add(lblPeriod_5);
 		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(66, 153, 239, 20);
-		panel.add(textField_5);
+		txtmon6 = new JTextField();
+		txtmon6.setColumns(10);
+		txtmon6.setBounds(66, 153, 239, 20);
+		panel.add(txtmon6);
 		
 		JButton button_4 = new JButton("Free");
 		button_4.setBounds(310, 152, 89, 23);
@@ -202,10 +217,10 @@ public class Jtable_input_gui extends JDialog {
 		lblPeriod_6.setBounds(10, 185, 46, 14);
 		panel.add(lblPeriod_6);
 		
-		textField_6 = new JTextField();
-		textField_6.setColumns(10);
-		textField_6.setBounds(66, 182, 239, 20);
-		panel.add(textField_6);
+		txtmon7 = new JTextField();
+		txtmon7.setColumns(10);
+		txtmon7.setBounds(66, 182, 239, 20);
+		panel.add(txtmon7);
 		
 		JButton button_5 = new JButton("Free");
 		button_5.setBounds(310, 181, 89, 23);
@@ -215,10 +230,10 @@ public class Jtable_input_gui extends JDialog {
 		lblPeriod_7.setBounds(10, 214, 46, 14);
 		panel.add(lblPeriod_7);
 		
-		textField_7 = new JTextField();
-		textField_7.setColumns(10);
-		textField_7.setBounds(66, 211, 239, 20);
-		panel.add(textField_7);
+		txtmon8 = new JTextField();
+		txtmon8.setColumns(10);
+		txtmon8.setBounds(66, 211, 239, 20);
+		panel.add(txtmon8);
 		
 		JButton button_6 = new JButton("Free");
 		button_6.setBounds(310, 210, 89, 23);
@@ -228,10 +243,10 @@ public class Jtable_input_gui extends JDialog {
 		lblPeriod_8.setBounds(10, 243, 46, 14);
 		panel.add(lblPeriod_8);
 		
-		textField_8 = new JTextField();
-		textField_8.setColumns(10);
-		textField_8.setBounds(66, 240, 239, 20);
-		panel.add(textField_8);
+		txtmon9 = new JTextField();
+		txtmon9.setColumns(10);
+		txtmon9.setBounds(66, 240, 239, 20);
+		panel.add(txtmon9);
 		
 		JButton button_7 = new JButton("Free");
 		button_7.setBounds(310, 239, 89, 23);
@@ -250,10 +265,10 @@ public class Jtable_input_gui extends JDialog {
 		label.setBounds(10, 11, 46, 14);
 		panel_7.add(label);
 		
-		textField_9 = new JTextField();
-		textField_9.setColumns(10);
-		textField_9.setBounds(66, 8, 239, 20);
-		panel_7.add(textField_9);
+		txttue1 = new JTextField();
+		txttue1.setColumns(10);
+		txttue1.setBounds(66, 8, 239, 20);
+		panel_7.add(txttue1);
 		
 		JButton button_8 = new JButton("Free");
 		button_8.setBounds(310, 7, 89, 23);
@@ -263,10 +278,10 @@ public class Jtable_input_gui extends JDialog {
 		label_1.setBounds(10, 40, 46, 14);
 		panel_7.add(label_1);
 		
-		textField_10 = new JTextField();
-		textField_10.setColumns(10);
-		textField_10.setBounds(66, 37, 239, 20);
-		panel_7.add(textField_10);
+		txttue2 = new JTextField();
+		txttue2.setColumns(10);
+		txttue2.setBounds(66, 37, 239, 20);
+		panel_7.add(txttue2);
 		
 		JButton button_9 = new JButton("Free");
 		button_9.setBounds(310, 36, 89, 23);
@@ -276,10 +291,10 @@ public class Jtable_input_gui extends JDialog {
 		label_2.setBounds(10, 69, 46, 14);
 		panel_7.add(label_2);
 		
-		textField_11 = new JTextField();
-		textField_11.setColumns(10);
-		textField_11.setBounds(66, 66, 239, 20);
-		panel_7.add(textField_11);
+		txttue3 = new JTextField();
+		txttue3.setColumns(10);
+		txttue3.setBounds(66, 66, 239, 20);
+		panel_7.add(txttue3);
 		
 		JButton button_10 = new JButton("Free");
 		button_10.setBounds(310, 65, 89, 23);
@@ -289,10 +304,10 @@ public class Jtable_input_gui extends JDialog {
 		label_3.setBounds(10, 98, 46, 14);
 		panel_7.add(label_3);
 		
-		textField_12 = new JTextField();
-		textField_12.setColumns(10);
-		textField_12.setBounds(66, 95, 239, 20);
-		panel_7.add(textField_12);
+		txttue4 = new JTextField();
+		txttue4.setColumns(10);
+		txttue4.setBounds(66, 95, 239, 20);
+		panel_7.add(txttue4);
 		
 		JButton button_11 = new JButton("Free");
 		button_11.setBounds(310, 94, 89, 23);
@@ -302,10 +317,10 @@ public class Jtable_input_gui extends JDialog {
 		label_4.setBounds(10, 127, 46, 14);
 		panel_7.add(label_4);
 		
-		textField_13 = new JTextField();
-		textField_13.setColumns(10);
-		textField_13.setBounds(66, 124, 239, 20);
-		panel_7.add(textField_13);
+		txttue5 = new JTextField();
+		txttue5.setColumns(10);
+		txttue5.setBounds(66, 124, 239, 20);
+		panel_7.add(txttue5);
 		
 		JButton button_12 = new JButton("Free");
 		button_12.setBounds(310, 123, 89, 23);
@@ -315,10 +330,10 @@ public class Jtable_input_gui extends JDialog {
 		label_5.setBounds(10, 156, 46, 14);
 		panel_7.add(label_5);
 		
-		textField_14 = new JTextField();
-		textField_14.setColumns(10);
-		textField_14.setBounds(66, 153, 239, 20);
-		panel_7.add(textField_14);
+		txttue6 = new JTextField();
+		txttue6.setColumns(10);
+		txttue6.setBounds(66, 153, 239, 20);
+		panel_7.add(txttue6);
 		
 		JButton button_13 = new JButton("Free");
 		button_13.setBounds(310, 152, 89, 23);
@@ -328,10 +343,10 @@ public class Jtable_input_gui extends JDialog {
 		label_6.setBounds(10, 185, 46, 14);
 		panel_7.add(label_6);
 		
-		textField_15 = new JTextField();
-		textField_15.setColumns(10);
-		textField_15.setBounds(66, 182, 239, 20);
-		panel_7.add(textField_15);
+		txttue7 = new JTextField();
+		txttue7.setColumns(10);
+		txttue7.setBounds(66, 182, 239, 20);
+		panel_7.add(txttue7);
 		
 		JButton button_14 = new JButton("Free");
 		button_14.setBounds(310, 181, 89, 23);
@@ -341,10 +356,10 @@ public class Jtable_input_gui extends JDialog {
 		label_7.setBounds(10, 214, 46, 14);
 		panel_7.add(label_7);
 		
-		textField_16 = new JTextField();
-		textField_16.setColumns(10);
-		textField_16.setBounds(66, 211, 239, 20);
-		panel_7.add(textField_16);
+		txttue8 = new JTextField();
+		txttue8.setColumns(10);
+		txttue8.setBounds(66, 211, 239, 20);
+		panel_7.add(txttue8);
 		
 		JButton button_15 = new JButton("Free");
 		button_15.setBounds(310, 210, 89, 23);
@@ -354,10 +369,10 @@ public class Jtable_input_gui extends JDialog {
 		label_8.setBounds(10, 243, 46, 14);
 		panel_7.add(label_8);
 		
-		textField_17 = new JTextField();
-		textField_17.setColumns(10);
-		textField_17.setBounds(66, 240, 239, 20);
-		panel_7.add(textField_17);
+		txttue9 = new JTextField();
+		txttue9.setColumns(10);
+		txttue9.setBounds(66, 240, 239, 20);
+		panel_7.add(txttue9);
 		
 		JButton button_16 = new JButton("Free");
 		button_16.setBounds(310, 239, 89, 23);
@@ -376,10 +391,10 @@ public class Jtable_input_gui extends JDialog {
 		label_9.setBounds(10, 11, 46, 14);
 		panel_8.add(label_9);
 		
-		textField_18 = new JTextField();
-		textField_18.setColumns(10);
-		textField_18.setBounds(66, 8, 239, 20);
-		panel_8.add(textField_18);
+		txtwed1 = new JTextField();
+		txtwed1.setColumns(10);
+		txtwed1.setBounds(66, 8, 239, 20);
+		panel_8.add(txtwed1);
 		
 		JButton button_17 = new JButton("Free");
 		button_17.setBounds(310, 7, 89, 23);
@@ -389,10 +404,10 @@ public class Jtable_input_gui extends JDialog {
 		label_10.setBounds(10, 40, 46, 14);
 		panel_8.add(label_10);
 		
-		textField_19 = new JTextField();
-		textField_19.setColumns(10);
-		textField_19.setBounds(66, 37, 239, 20);
-		panel_8.add(textField_19);
+		txtwed2 = new JTextField();
+		txtwed2.setColumns(10);
+		txtwed2.setBounds(66, 37, 239, 20);
+		panel_8.add(txtwed2);
 		
 		JButton button_18 = new JButton("Free");
 		button_18.setBounds(310, 36, 89, 23);
@@ -402,10 +417,10 @@ public class Jtable_input_gui extends JDialog {
 		label_11.setBounds(10, 69, 46, 14);
 		panel_8.add(label_11);
 		
-		textField_20 = new JTextField();
-		textField_20.setColumns(10);
-		textField_20.setBounds(66, 66, 239, 20);
-		panel_8.add(textField_20);
+		txtwed3 = new JTextField();
+		txtwed3.setColumns(10);
+		txtwed3.setBounds(66, 66, 239, 20);
+		panel_8.add(txtwed3);
 		
 		JButton button_19 = new JButton("Free");
 		button_19.setBounds(310, 65, 89, 23);
@@ -415,10 +430,10 @@ public class Jtable_input_gui extends JDialog {
 		label_12.setBounds(10, 98, 46, 14);
 		panel_8.add(label_12);
 		
-		textField_21 = new JTextField();
-		textField_21.setColumns(10);
-		textField_21.setBounds(66, 95, 239, 20);
-		panel_8.add(textField_21);
+		txtwed4 = new JTextField();
+		txtwed4.setColumns(10);
+		txtwed4.setBounds(66, 95, 239, 20);
+		panel_8.add(txtwed4);
 		
 		JButton button_20 = new JButton("Free");
 		button_20.setBounds(310, 94, 89, 23);
@@ -428,10 +443,10 @@ public class Jtable_input_gui extends JDialog {
 		label_13.setBounds(10, 127, 46, 14);
 		panel_8.add(label_13);
 		
-		textField_22 = new JTextField();
-		textField_22.setColumns(10);
-		textField_22.setBounds(66, 124, 239, 20);
-		panel_8.add(textField_22);
+		txtwed5 = new JTextField();
+		txtwed5.setColumns(10);
+		txtwed5.setBounds(66, 124, 239, 20);
+		panel_8.add(txtwed5);
 		
 		JButton button_21 = new JButton("Free");
 		button_21.setBounds(310, 123, 89, 23);
@@ -441,10 +456,10 @@ public class Jtable_input_gui extends JDialog {
 		label_14.setBounds(10, 156, 46, 14);
 		panel_8.add(label_14);
 		
-		textField_23 = new JTextField();
-		textField_23.setColumns(10);
-		textField_23.setBounds(66, 153, 239, 20);
-		panel_8.add(textField_23);
+		txtwed6 = new JTextField();
+		txtwed6.setColumns(10);
+		txtwed6.setBounds(66, 153, 239, 20);
+		panel_8.add(txtwed6);
 		
 		JButton button_22 = new JButton("Free");
 		button_22.setBounds(310, 152, 89, 23);
@@ -454,10 +469,10 @@ public class Jtable_input_gui extends JDialog {
 		label_15.setBounds(10, 185, 46, 14);
 		panel_8.add(label_15);
 		
-		textField_24 = new JTextField();
-		textField_24.setColumns(10);
-		textField_24.setBounds(66, 182, 239, 20);
-		panel_8.add(textField_24);
+		txtwed7 = new JTextField();
+		txtwed7.setColumns(10);
+		txtwed7.setBounds(66, 182, 239, 20);
+		panel_8.add(txtwed7);
 		
 		JButton button_23 = new JButton("Free");
 		button_23.setBounds(310, 181, 89, 23);
@@ -467,10 +482,10 @@ public class Jtable_input_gui extends JDialog {
 		label_16.setBounds(10, 214, 46, 14);
 		panel_8.add(label_16);
 		
-		textField_25 = new JTextField();
-		textField_25.setColumns(10);
-		textField_25.setBounds(66, 211, 239, 20);
-		panel_8.add(textField_25);
+		txtwed8 = new JTextField();
+		txtwed8.setColumns(10);
+		txtwed8.setBounds(66, 211, 239, 20);
+		panel_8.add(txtwed8);
 		
 		JButton button_24 = new JButton("Free");
 		button_24.setBounds(310, 210, 89, 23);
@@ -480,10 +495,10 @@ public class Jtable_input_gui extends JDialog {
 		label_17.setBounds(10, 243, 46, 14);
 		panel_8.add(label_17);
 		
-		textField_26 = new JTextField();
-		textField_26.setColumns(10);
-		textField_26.setBounds(66, 240, 239, 20);
-		panel_8.add(textField_26);
+		txtwed9 = new JTextField();
+		txtwed9.setColumns(10);
+		txtwed9.setBounds(66, 240, 239, 20);
+		panel_8.add(txtwed9);
 		
 		JButton button_25 = new JButton("Free");
 		button_25.setBounds(310, 239, 89, 23);
@@ -502,10 +517,10 @@ public class Jtable_input_gui extends JDialog {
 		label_18.setBounds(10, 11, 46, 14);
 		panel_9.add(label_18);
 		
-		textField_27 = new JTextField();
-		textField_27.setColumns(10);
-		textField_27.setBounds(66, 8, 239, 20);
-		panel_9.add(textField_27);
+		txtthu1 = new JTextField();
+		txtthu1.setColumns(10);
+		txtthu1.setBounds(66, 8, 239, 20);
+		panel_9.add(txtthu1);
 		
 		JButton button_26 = new JButton("Free");
 		button_26.setBounds(310, 7, 89, 23);
@@ -515,10 +530,10 @@ public class Jtable_input_gui extends JDialog {
 		label_19.setBounds(10, 40, 46, 14);
 		panel_9.add(label_19);
 		
-		textField_28 = new JTextField();
-		textField_28.setColumns(10);
-		textField_28.setBounds(66, 37, 239, 20);
-		panel_9.add(textField_28);
+		txtthu2 = new JTextField();
+		txtthu2.setColumns(10);
+		txtthu2.setBounds(66, 37, 239, 20);
+		panel_9.add(txtthu2);
 		
 		JButton button_27 = new JButton("Free");
 		button_27.setBounds(310, 36, 89, 23);
@@ -528,10 +543,10 @@ public class Jtable_input_gui extends JDialog {
 		label_20.setBounds(10, 69, 46, 14);
 		panel_9.add(label_20);
 		
-		textField_29 = new JTextField();
-		textField_29.setColumns(10);
-		textField_29.setBounds(66, 66, 239, 20);
-		panel_9.add(textField_29);
+		txtthu3 = new JTextField();
+		txtthu3.setColumns(10);
+		txtthu3.setBounds(66, 66, 239, 20);
+		panel_9.add(txtthu3);
 		
 		JButton button_28 = new JButton("Free");
 		button_28.setBounds(310, 65, 89, 23);
@@ -541,10 +556,10 @@ public class Jtable_input_gui extends JDialog {
 		label_21.setBounds(10, 98, 46, 14);
 		panel_9.add(label_21);
 		
-		textField_30 = new JTextField();
-		textField_30.setColumns(10);
-		textField_30.setBounds(66, 95, 239, 20);
-		panel_9.add(textField_30);
+		txtthu4 = new JTextField();
+		txtthu4.setColumns(10);
+		txtthu4.setBounds(66, 95, 239, 20);
+		panel_9.add(txtthu4);
 		
 		JButton button_29 = new JButton("Free");
 		button_29.setBounds(310, 94, 89, 23);
@@ -554,10 +569,10 @@ public class Jtable_input_gui extends JDialog {
 		label_22.setBounds(10, 127, 46, 14);
 		panel_9.add(label_22);
 		
-		textField_31 = new JTextField();
-		textField_31.setColumns(10);
-		textField_31.setBounds(66, 124, 239, 20);
-		panel_9.add(textField_31);
+		txtthu5 = new JTextField();
+		txtthu5.setColumns(10);
+		txtthu5.setBounds(66, 124, 239, 20);
+		panel_9.add(txtthu5);
 		
 		JButton button_30 = new JButton("Free");
 		button_30.setBounds(310, 123, 89, 23);
@@ -567,10 +582,10 @@ public class Jtable_input_gui extends JDialog {
 		label_23.setBounds(10, 156, 46, 14);
 		panel_9.add(label_23);
 		
-		textField_32 = new JTextField();
-		textField_32.setColumns(10);
-		textField_32.setBounds(66, 153, 239, 20);
-		panel_9.add(textField_32);
+		txtthu6 = new JTextField();
+		txtthu6.setColumns(10);
+		txtthu6.setBounds(66, 153, 239, 20);
+		panel_9.add(txtthu6);
 		
 		JButton button_31 = new JButton("Free");
 		button_31.setBounds(310, 152, 89, 23);
@@ -580,10 +595,10 @@ public class Jtable_input_gui extends JDialog {
 		label_24.setBounds(10, 185, 46, 14);
 		panel_9.add(label_24);
 		
-		textField_33 = new JTextField();
-		textField_33.setColumns(10);
-		textField_33.setBounds(66, 182, 239, 20);
-		panel_9.add(textField_33);
+		txtthu7 = new JTextField();
+		txtthu7.setColumns(10);
+		txtthu7.setBounds(66, 182, 239, 20);
+		panel_9.add(txtthu7);
 		
 		JButton button_32 = new JButton("Free");
 		button_32.setBounds(310, 181, 89, 23);
@@ -593,10 +608,10 @@ public class Jtable_input_gui extends JDialog {
 		label_25.setBounds(10, 214, 46, 14);
 		panel_9.add(label_25);
 		
-		textField_34 = new JTextField();
-		textField_34.setColumns(10);
-		textField_34.setBounds(66, 211, 239, 20);
-		panel_9.add(textField_34);
+		txtthu8 = new JTextField();
+		txtthu8.setColumns(10);
+		txtthu8.setBounds(66, 211, 239, 20);
+		panel_9.add(txtthu8);
 		
 		JButton button_33 = new JButton("Free");
 		button_33.setBounds(310, 210, 89, 23);
@@ -606,10 +621,10 @@ public class Jtable_input_gui extends JDialog {
 		label_26.setBounds(10, 243, 46, 14);
 		panel_9.add(label_26);
 		
-		textField_35 = new JTextField();
-		textField_35.setColumns(10);
-		textField_35.setBounds(66, 240, 239, 20);
-		panel_9.add(textField_35);
+		txtthu9 = new JTextField();
+		txtthu9.setColumns(10);
+		txtthu9.setBounds(66, 240, 239, 20);
+		panel_9.add(txtthu9);
 		
 		JButton button_34 = new JButton("Free");
 		button_34.setBounds(310, 239, 89, 23);
@@ -628,10 +643,10 @@ public class Jtable_input_gui extends JDialog {
 		label_27.setBounds(10, 11, 46, 14);
 		panel_10.add(label_27);
 		
-		textField_36 = new JTextField();
-		textField_36.setColumns(10);
-		textField_36.setBounds(66, 8, 239, 20);
-		panel_10.add(textField_36);
+		txtfr1 = new JTextField();
+		txtfr1.setColumns(10);
+		txtfr1.setBounds(66, 8, 239, 20);
+		panel_10.add(txtfr1);
 		
 		JButton button_35 = new JButton("Free");
 		button_35.setBounds(310, 7, 89, 23);
@@ -641,10 +656,10 @@ public class Jtable_input_gui extends JDialog {
 		label_28.setBounds(10, 40, 46, 14);
 		panel_10.add(label_28);
 		
-		textField_37 = new JTextField();
-		textField_37.setColumns(10);
-		textField_37.setBounds(66, 37, 239, 20);
-		panel_10.add(textField_37);
+		txtfr2 = new JTextField();
+		txtfr2.setColumns(10);
+		txtfr2.setBounds(66, 37, 239, 20);
+		panel_10.add(txtfr2);
 		
 		JButton button_36 = new JButton("Free");
 		button_36.setBounds(310, 36, 89, 23);
@@ -654,10 +669,10 @@ public class Jtable_input_gui extends JDialog {
 		label_29.setBounds(10, 69, 46, 14);
 		panel_10.add(label_29);
 		
-		textField_38 = new JTextField();
-		textField_38.setColumns(10);
-		textField_38.setBounds(66, 66, 239, 20);
-		panel_10.add(textField_38);
+		txtfr3 = new JTextField();
+		txtfr3.setColumns(10);
+		txtfr3.setBounds(66, 66, 239, 20);
+		panel_10.add(txtfr3);
 		
 		JButton button_37 = new JButton("Free");
 		button_37.setBounds(310, 65, 89, 23);
@@ -667,10 +682,10 @@ public class Jtable_input_gui extends JDialog {
 		label_30.setBounds(10, 98, 46, 14);
 		panel_10.add(label_30);
 		
-		textField_39 = new JTextField();
-		textField_39.setColumns(10);
-		textField_39.setBounds(66, 95, 239, 20);
-		panel_10.add(textField_39);
+		txtfr4 = new JTextField();
+		txtfr4.setColumns(10);
+		txtfr4.setBounds(66, 95, 239, 20);
+		panel_10.add(txtfr4);
 		
 		JButton button_38 = new JButton("Free");
 		button_38.setBounds(310, 94, 89, 23);
@@ -680,10 +695,10 @@ public class Jtable_input_gui extends JDialog {
 		label_31.setBounds(10, 127, 46, 14);
 		panel_10.add(label_31);
 		
-		textField_40 = new JTextField();
-		textField_40.setColumns(10);
-		textField_40.setBounds(66, 124, 239, 20);
-		panel_10.add(textField_40);
+		txtfr5 = new JTextField();
+		txtfr5.setColumns(10);
+		txtfr5.setBounds(66, 124, 239, 20);
+		panel_10.add(txtfr5);
 		
 		JButton button_39 = new JButton("Free");
 		button_39.setBounds(310, 123, 89, 23);
@@ -693,10 +708,10 @@ public class Jtable_input_gui extends JDialog {
 		label_32.setBounds(10, 156, 46, 14);
 		panel_10.add(label_32);
 		
-		textField_41 = new JTextField();
-		textField_41.setColumns(10);
-		textField_41.setBounds(66, 153, 239, 20);
-		panel_10.add(textField_41);
+		txtfr6 = new JTextField();
+		txtfr6.setColumns(10);
+		txtfr6.setBounds(66, 153, 239, 20);
+		panel_10.add(txtfr6);
 		
 		JButton button_40 = new JButton("Free");
 		button_40.setBounds(310, 152, 89, 23);
@@ -706,10 +721,10 @@ public class Jtable_input_gui extends JDialog {
 		label_33.setBounds(10, 185, 46, 14);
 		panel_10.add(label_33);
 		
-		textField_42 = new JTextField();
-		textField_42.setColumns(10);
-		textField_42.setBounds(66, 182, 239, 20);
-		panel_10.add(textField_42);
+		txtfr7 = new JTextField();
+		txtfr7.setColumns(10);
+		txtfr7.setBounds(66, 182, 239, 20);
+		panel_10.add(txtfr7);
 		
 		JButton button_41 = new JButton("Free");
 		button_41.setBounds(310, 181, 89, 23);
@@ -719,10 +734,10 @@ public class Jtable_input_gui extends JDialog {
 		label_34.setBounds(10, 214, 46, 14);
 		panel_10.add(label_34);
 		
-		textField_43 = new JTextField();
-		textField_43.setColumns(10);
-		textField_43.setBounds(66, 211, 239, 20);
-		panel_10.add(textField_43);
+		txtfr8 = new JTextField();
+		txtfr8.setColumns(10);
+		txtfr8.setBounds(66, 211, 239, 20);
+		panel_10.add(txtfr8);
 		
 		JButton button_42 = new JButton("Free");
 		button_42.setBounds(310, 210, 89, 23);
@@ -732,10 +747,10 @@ public class Jtable_input_gui extends JDialog {
 		label_35.setBounds(10, 243, 46, 14);
 		panel_10.add(label_35);
 		
-		textField_44 = new JTextField();
-		textField_44.setColumns(10);
-		textField_44.setBounds(66, 240, 239, 20);
-		panel_10.add(textField_44);
+		txtfr9 = new JTextField();
+		txtfr9.setColumns(10);
+		txtfr9.setBounds(66, 240, 239, 20);
+		panel_10.add(txtfr9);
 		
 		JButton button_43 = new JButton("Free");
 		button_43.setBounds(310, 239, 89, 23);
@@ -754,10 +769,10 @@ public class Jtable_input_gui extends JDialog {
 		label_36.setBounds(10, 11, 46, 14);
 		panel_11.add(label_36);
 		
-		textField_45 = new JTextField();
-		textField_45.setColumns(10);
-		textField_45.setBounds(66, 8, 239, 20);
-		panel_11.add(textField_45);
+		txtsat1 = new JTextField();
+		txtsat1.setColumns(10);
+		txtsat1.setBounds(66, 8, 239, 20);
+		panel_11.add(txtsat1);
 		
 		JButton button_44 = new JButton("Free");
 		button_44.setBounds(310, 7, 89, 23);
@@ -767,10 +782,10 @@ public class Jtable_input_gui extends JDialog {
 		label_37.setBounds(10, 40, 46, 14);
 		panel_11.add(label_37);
 		
-		textField_46 = new JTextField();
-		textField_46.setColumns(10);
-		textField_46.setBounds(66, 37, 239, 20);
-		panel_11.add(textField_46);
+		txtsat2 = new JTextField();
+		txtsat2.setColumns(10);
+		txtsat2.setBounds(66, 37, 239, 20);
+		panel_11.add(txtsat2);
 		
 		JButton button_45 = new JButton("Free");
 		button_45.setBounds(310, 36, 89, 23);
@@ -780,10 +795,10 @@ public class Jtable_input_gui extends JDialog {
 		label_38.setBounds(10, 69, 46, 14);
 		panel_11.add(label_38);
 		
-		textField_47 = new JTextField();
-		textField_47.setColumns(10);
-		textField_47.setBounds(66, 66, 239, 20);
-		panel_11.add(textField_47);
+		txtsat3 = new JTextField();
+		txtsat3.setColumns(10);
+		txtsat3.setBounds(66, 66, 239, 20);
+		panel_11.add(txtsat3);
 		
 		JButton button_46 = new JButton("Free");
 		button_46.setBounds(310, 65, 89, 23);
@@ -793,10 +808,10 @@ public class Jtable_input_gui extends JDialog {
 		label_39.setBounds(10, 98, 46, 14);
 		panel_11.add(label_39);
 		
-		textField_48 = new JTextField();
-		textField_48.setColumns(10);
-		textField_48.setBounds(66, 95, 239, 20);
-		panel_11.add(textField_48);
+		txtsat4 = new JTextField();
+		txtsat4.setColumns(10);
+		txtsat4.setBounds(66, 95, 239, 20);
+		panel_11.add(txtsat4);
 		
 		JButton button_47 = new JButton("Free");
 		button_47.setBounds(310, 94, 89, 23);
@@ -806,10 +821,10 @@ public class Jtable_input_gui extends JDialog {
 		label_40.setBounds(10, 127, 46, 14);
 		panel_11.add(label_40);
 		
-		textField_49 = new JTextField();
-		textField_49.setColumns(10);
-		textField_49.setBounds(66, 124, 239, 20);
-		panel_11.add(textField_49);
+		txtsat5 = new JTextField();
+		txtsat5.setColumns(10);
+		txtsat5.setBounds(66, 124, 239, 20);
+		panel_11.add(txtsat5);
 		
 		JButton button_48 = new JButton("Free");
 		button_48.setBounds(310, 123, 89, 23);
@@ -819,10 +834,10 @@ public class Jtable_input_gui extends JDialog {
 		label_41.setBounds(10, 156, 46, 14);
 		panel_11.add(label_41);
 		
-		textField_50 = new JTextField();
-		textField_50.setColumns(10);
-		textField_50.setBounds(66, 153, 239, 20);
-		panel_11.add(textField_50);
+		txtsat6 = new JTextField();
+		txtsat6.setColumns(10);
+		txtsat6.setBounds(66, 153, 239, 20);
+		panel_11.add(txtsat6);
 		
 		JButton button_49 = new JButton("Free");
 		button_49.setBounds(310, 152, 89, 23);
@@ -832,10 +847,10 @@ public class Jtable_input_gui extends JDialog {
 		label_42.setBounds(10, 185, 46, 14);
 		panel_11.add(label_42);
 		
-		textField_51 = new JTextField();
-		textField_51.setColumns(10);
-		textField_51.setBounds(66, 182, 239, 20);
-		panel_11.add(textField_51);
+		txtsat7 = new JTextField();
+		txtsat7.setColumns(10);
+		txtsat7.setBounds(66, 182, 239, 20);
+		panel_11.add(txtsat7);
 		
 		JButton button_50 = new JButton("Free");
 		button_50.setBounds(310, 181, 89, 23);
@@ -845,10 +860,10 @@ public class Jtable_input_gui extends JDialog {
 		label_43.setBounds(10, 214, 46, 14);
 		panel_11.add(label_43);
 		
-		textField_52 = new JTextField();
-		textField_52.setColumns(10);
-		textField_52.setBounds(66, 211, 239, 20);
-		panel_11.add(textField_52);
+		txtsat8 = new JTextField();
+		txtsat8.setColumns(10);
+		txtsat8.setBounds(66, 211, 239, 20);
+		panel_11.add(txtsat8);
 		
 		JButton button_51 = new JButton("Free");
 		button_51.setBounds(310, 210, 89, 23);
@@ -858,10 +873,10 @@ public class Jtable_input_gui extends JDialog {
 		label_44.setBounds(10, 243, 46, 14);
 		panel_11.add(label_44);
 		
-		textField_53 = new JTextField();
-		textField_53.setColumns(10);
-		textField_53.setBounds(66, 240, 239, 20);
-		panel_11.add(textField_53);
+		txtsat9 = new JTextField();
+		txtsat9.setColumns(10);
+		txtsat9.setBounds(66, 240, 239, 20);
+		panel_11.add(txtsat9);
 		
 		JButton button_52 = new JButton("Free");
 		button_52.setBounds(310, 239, 89, 23);
@@ -880,10 +895,10 @@ public class Jtable_input_gui extends JDialog {
 		label_45.setBounds(10, 11, 46, 14);
 		panel_12.add(label_45);
 		
-		textField_54 = new JTextField();
-		textField_54.setColumns(10);
-		textField_54.setBounds(66, 8, 239, 20);
-		panel_12.add(textField_54);
+		txtsun1 = new JTextField();
+		txtsun1.setColumns(10);
+		txtsun1.setBounds(66, 8, 239, 20);
+		panel_12.add(txtsun1);
 		
 		JButton button_53 = new JButton("Free");
 		button_53.setBounds(310, 7, 89, 23);
@@ -893,10 +908,10 @@ public class Jtable_input_gui extends JDialog {
 		label_46.setBounds(10, 40, 46, 14);
 		panel_12.add(label_46);
 		
-		textField_55 = new JTextField();
-		textField_55.setColumns(10);
-		textField_55.setBounds(66, 37, 239, 20);
-		panel_12.add(textField_55);
+		txtsun2 = new JTextField();
+		txtsun2.setColumns(10);
+		txtsun2.setBounds(66, 37, 239, 20);
+		panel_12.add(txtsun2);
 		
 		JButton button_54 = new JButton("Free");
 		button_54.setBounds(310, 36, 89, 23);
@@ -906,10 +921,10 @@ public class Jtable_input_gui extends JDialog {
 		label_47.setBounds(10, 69, 46, 14);
 		panel_12.add(label_47);
 		
-		textField_56 = new JTextField();
-		textField_56.setColumns(10);
-		textField_56.setBounds(66, 66, 239, 20);
-		panel_12.add(textField_56);
+		txtsun3 = new JTextField();
+		txtsun3.setColumns(10);
+		txtsun3.setBounds(66, 66, 239, 20);
+		panel_12.add(txtsun3);
 		
 		JButton button_55 = new JButton("Free");
 		button_55.setBounds(310, 65, 89, 23);
@@ -919,10 +934,10 @@ public class Jtable_input_gui extends JDialog {
 		label_48.setBounds(10, 98, 46, 14);
 		panel_12.add(label_48);
 		
-		textField_57 = new JTextField();
-		textField_57.setColumns(10);
-		textField_57.setBounds(66, 95, 239, 20);
-		panel_12.add(textField_57);
+		txtsun4 = new JTextField();
+		txtsun4.setColumns(10);
+		txtsun4.setBounds(66, 95, 239, 20);
+		panel_12.add(txtsun4);
 		
 		JButton button_56 = new JButton("Free");
 		button_56.setBounds(310, 94, 89, 23);
@@ -932,10 +947,10 @@ public class Jtable_input_gui extends JDialog {
 		label_49.setBounds(10, 127, 46, 14);
 		panel_12.add(label_49);
 		
-		textField_58 = new JTextField();
-		textField_58.setColumns(10);
-		textField_58.setBounds(66, 124, 239, 20);
-		panel_12.add(textField_58);
+		txtsun5 = new JTextField();
+		txtsun5.setColumns(10);
+		txtsun5.setBounds(66, 124, 239, 20);
+		panel_12.add(txtsun5);
 		
 		JButton button_57 = new JButton("Free");
 		button_57.setBounds(310, 123, 89, 23);
@@ -945,10 +960,10 @@ public class Jtable_input_gui extends JDialog {
 		label_50.setBounds(10, 156, 46, 14);
 		panel_12.add(label_50);
 		
-		textField_59 = new JTextField();
-		textField_59.setColumns(10);
-		textField_59.setBounds(66, 153, 239, 20);
-		panel_12.add(textField_59);
+		txtsun6 = new JTextField();
+		txtsun6.setColumns(10);
+		txtsun6.setBounds(66, 153, 239, 20);
+		panel_12.add(txtsun6);
 		
 		JButton button_58 = new JButton("Free");
 		button_58.setBounds(310, 152, 89, 23);
@@ -958,10 +973,10 @@ public class Jtable_input_gui extends JDialog {
 		label_51.setBounds(10, 185, 46, 14);
 		panel_12.add(label_51);
 		
-		textField_60 = new JTextField();
-		textField_60.setColumns(10);
-		textField_60.setBounds(66, 182, 239, 20);
-		panel_12.add(textField_60);
+		txtsun7 = new JTextField();
+		txtsun7.setColumns(10);
+		txtsun7.setBounds(66, 182, 239, 20);
+		panel_12.add(txtsun7);
 		
 		JButton button_59 = new JButton("Free");
 		button_59.setBounds(310, 181, 89, 23);
@@ -971,10 +986,10 @@ public class Jtable_input_gui extends JDialog {
 		label_52.setBounds(10, 214, 46, 14);
 		panel_12.add(label_52);
 		
-		textField_61 = new JTextField();
-		textField_61.setColumns(10);
-		textField_61.setBounds(66, 211, 239, 20);
-		panel_12.add(textField_61);
+		txtsun8 = new JTextField();
+		txtsun8.setColumns(10);
+		txtsun8.setBounds(66, 211, 239, 20);
+		panel_12.add(txtsun8);
 		
 		JButton button_60 = new JButton("Free");
 		button_60.setBounds(310, 210, 89, 23);
@@ -984,10 +999,13 @@ public class Jtable_input_gui extends JDialog {
 		label_53.setBounds(10, 243, 46, 14);
 		panel_12.add(label_53);
 		
-		textField_62 = new JTextField();
-		textField_62.setColumns(10);
-		textField_62.setBounds(66, 240, 239, 20);
-		panel_12.add(textField_62);
+		txtsun9 = new JTextField();
+		txtsun9.setColumns(10);
+		txtsun9.setBounds(66, 240, 239, 20);
+		panel_12.add(txtsun9);
+		
+		//opens connection to proprietary SQLite db
+		ttconnection = SQLite_tt_connector.ttdb_connection();
 		
 		JButton button_61 = new JButton("Free");
 		button_61.setBounds(310, 239, 89, 23);
@@ -998,6 +1016,140 @@ public class Jtable_input_gui extends JDialog {
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton okButton = new JButton("OK");
+				okButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						
+						//Monday
+						String mon1 = txtmon1.getText();
+						String mon2 = txtmon2.getText();
+						String mon3 = txtmon3.getText();
+						String mon4 = txtmon4.getText();
+						String mon5 = txtmon5.getText();
+						String mon6 = txtmon6.getText();
+						String mon7 = txtmon7.getText();
+						String mon8 = txtmon8.getText();
+						String mon9 = txtmon9.getText();
+						
+						//Tuesday
+						String tue1 = txttue1.getText();
+						String tue2 = txttue2.getText();
+						String tue3 = txttue3.getText();
+						String tue4 = txttue4.getText();
+						String tue5 = txttue5.getText();
+						String tue6 = txttue6.getText();
+						String tue7 = txttue7.getText();
+						String tue8 = txttue8.getText();
+						String tue9 = txttue9.getText();
+						
+						//Wednesday
+						String wed1 = txtwed1.getText();
+						String wed2 = txtwed2.getText();
+						String wed3 = txtwed3.getText();
+						String wed4 = txtwed4.getText();
+						String wed5 = txtwed5.getText();
+						String wed6 = txtwed6.getText();
+						String wed7 = txtwed7.getText();
+						String wed8 = txtwed8.getText();
+						String wed9 = txtwed9.getText();
+						
+						//Thursday
+						String thu1 = txtthu1.getText();
+						String thu2 = txtthu2.getText();
+						String thu3 = txtthu3.getText();
+						String thu4 = txtthu4.getText();
+						String thu5 = txtthu5.getText();
+						String thu6 = txtthu6.getText();
+						String thu7 = txtthu7.getText();
+						String thu8 = txtthu8.getText();
+						String thu9 = txtthu9.getText();
+						
+						//Friday
+						String fr1 = txtfr1.getText();
+						String fr2 = txtfr2.getText();
+						String fr3 = txtfr3.getText();
+						String fr4 = txtfr4.getText();
+						String fr5 = txtfr5.getText();
+						String fr6 = txtfr6.getText();
+						String fr7 = txtfr7.getText();
+						String fr8 = txtfr8.getText();
+						String fr9 = txtfr9.getText();
+						
+						//Saturday
+						String sat1 = txtsat1.getText();
+						String sat2 = txtsat2.getText();
+						String sat3 = txtsat3.getText();
+						String sat4 = txtsat4.getText();
+						String sat5 = txtsat5.getText();
+						String sat6 = txtsat6.getText();
+						String sat7 = txtsat7.getText();
+						String sat8 = txtsat8.getText();
+						String sat9 = txtsat9.getText();
+						
+						//Sunday
+						String sun1 = txtsun1.getText();
+						String sun2 = txtsun2.getText();
+						String sun3 = txtsun3.getText();
+						String sun4 = txtsun4.getText();
+						String sun5 = txtsun5.getText();
+						String sun6 = txtsun6.getText();
+						String sun7 = txtsun7.getText();
+						String sun8 = txtsun8.getText();
+						String sun9 = txtsun9.getText();
+						
+					try{
+						
+						String queryadd = "insert into TimeTable (Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) values (?,?,?,?,?,?,?) "; //adds entries to sqlite table for timetable info!
+		    			PreparedStatement pst_add = ttconnection.prepareStatement(queryadd);
+		    			
+		    			
+		    			
+		    			
+		    			int day;
+		    			int period;
+		    			int d;
+		    			int p;
+		    			String mon;
+		    			String tue;
+		    			String wed;
+		    			String thu;
+		    			String fr;
+		    			String sat;
+		    			String sun;
+		    			
+		    			for (period = 1; period < 10; period ++){
+		    				
+		    				p = period;		    			
+		    			  
+		    			      for (day = 1; day < 8; day++){		    				    
+		    			    	//TODO think of something real intelligent to get this shit to work.... (creates appropriate String and adds it to the prepared statement)		    			    			    	
+		    			    	pst_add.setString(1, mon);
+		  		    			pst_add.setString(2, tue);
+		  		    			pst_add.setString(3, wed);
+		  		    			pst_add.setString(4, thu);
+		  		    			pst_add.setString(5, fr);
+		  		    			pst_add.setString(6, sat);
+		  		    			pst_add.setString(7, sun);		    			   
+		    			      }
+		    			      
+		    			   //Executes prepared Statement
+		    			   pst_add.execute();
+		    			      
+		    			}	
+		    		
+		    			JOptionPane.showMessageDialog(null, "Data saved!");   
+		    			
+		    			dispose();
+		    			
+		    		    pst_add.close();
+						
+					}
+				catch (Exception g){
+					JOptionPane.showMessageDialog(null, g);
+				}
+						
+						
+					}
+				});
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
@@ -1005,10 +1157,8 @@ public class Jtable_input_gui extends JDialog {
 			{
 				JButton cancelButton = new JButton("Cancel");
 				cancelButton.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						
+					public void actionPerformed(ActionEvent e) {						
 						dispose();
-						
 					}
 				});
 				cancelButton.setActionCommand("Cancel");
