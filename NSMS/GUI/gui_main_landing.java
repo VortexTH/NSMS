@@ -51,7 +51,7 @@ public class gui_main_landing {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void penismain(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

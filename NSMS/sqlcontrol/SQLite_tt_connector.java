@@ -6,7 +6,7 @@ import javax.swing.*;
 
 public class SQLite_tt_connector {
 	//Initializes global connection variable (unused until now!)
-	Connection conn_log = null;
+	Connection conn_tt = null;
 	
 	public static Connection ttdb_connection(){
 		
@@ -16,7 +16,9 @@ public class SQLite_tt_connector {
 			Class.forName("org.sqlite.JDBC");
 			
 			Connection conn_tt = DriverManager.getConnection("jdbc:sqlite:SQLite/NSMStt.sqlite");
+			
 			//JOptionPane.showMessageDialog(null, "Database Connection Successful!");
+			
 			return conn_tt;
 			
 		}	catch(Exception e){

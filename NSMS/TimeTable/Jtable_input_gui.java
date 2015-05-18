@@ -1064,15 +1064,15 @@ public class Jtable_input_gui extends JDialog {
 						String thu9 = txtthu9.getText();
 						
 						//Friday
-						String fr1 = txtfr1.getText();
-						String fr2 = txtfr2.getText();
-						String fr3 = txtfr3.getText();
-						String fr4 = txtfr4.getText();
-						String fr5 = txtfr5.getText();
-						String fr6 = txtfr6.getText();
-						String fr7 = txtfr7.getText();
-						String fr8 = txtfr8.getText();
-						String fr9 = txtfr9.getText();
+						String fri1 = txtfr1.getText();
+						String fri2 = txtfr2.getText();
+						String fri3 = txtfr3.getText();
+						String fri4 = txtfr4.getText();
+						String fri5 = txtfr5.getText();
+						String fri6 = txtfr6.getText();
+						String fri7 = txtfr7.getText();
+						String fri8 = txtfr8.getText();
+						String fri9 = txtfr9.getText();
 						
 						//Saturday
 						String sat1 = txtsat1.getText();
@@ -1098,12 +1098,10 @@ public class Jtable_input_gui extends JDialog {
 						
 					try{
 						
-						String queryadd = "insert into TimeTable (Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) values (?,?,?,?,?,?,?) "; //adds entries to sqlite table for timetable info!
+						String queryadd = "insert into TimeTable (Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) values (?,?,?,?,?,?,?) "; //SQLite Query
 		    			PreparedStatement pst_add = ttconnection.prepareStatement(queryadd);
-		    			
-		    			
-		    			
-		    			
+		    					    			
+		    			/*
 		    			int day;
 		    			int period;
 		    			int d;
@@ -1115,11 +1113,11 @@ public class Jtable_input_gui extends JDialog {
 		    			String fr;
 		    			String sat;
 		    			String sun;
-		    			
+		  
 		    			for (period = 1; period < 10; period ++){
-		    				
+
 		    				p = period;		    			
-		    			  
+
 		    			      for (day = 1; day < 8; day++){		    				    
 		    			    	//TODO think of something real intelligent to get this shit to work.... (creates appropriate String and adds it to the prepared statement)		    			    			    	
 		    			    	pst_add.setString(1, mon);
@@ -1130,11 +1128,105 @@ public class Jtable_input_gui extends JDialog {
 		  		    			pst_add.setString(6, sat);
 		  		    			pst_add.setString(7, sun);		    			   
 		    			      }
-		    			      
+
 		    			   //Executes prepared Statement
 		    			   pst_add.execute();
-		    			      
-		    			}	
+
+		    			}
+		    			 */	
+		    			
+		    			//Period 1
+		    			pst_add.setString(1, mon1);
+		    			pst_add.setString(2, tue1);
+		    			pst_add.setString(3, wed1);
+		    			pst_add.setString(4, thu1);
+		    			pst_add.setString(5, fri1);
+		    			pst_add.setString(6, sat1);
+		    			pst_add.setString(7, sun1);
+		    			pst_add.addBatch();
+		    			
+		    			//Period2
+		    			pst_add.setString(1, mon2);
+		    			pst_add.setString(2, tue2);
+		    			pst_add.setString(3, wed2);
+		    			pst_add.setString(4, thu2);
+		    			pst_add.setString(5, fri2);
+		    			pst_add.setString(6, sat2);
+		    			pst_add.setString(7, sun2);
+		    			pst_add.addBatch();
+		    			
+		    			//Period 3
+		    			pst_add.setString(1, mon3);
+		    			pst_add.setString(2, tue3);
+		    			pst_add.setString(3, wed3);
+		    			pst_add.setString(4, thu3);
+		    			pst_add.setString(5, fri3);
+		    			pst_add.setString(6, sat3);
+		    			pst_add.setString(7, sun3);
+		    			pst_add.addBatch();
+		    			
+		    			//Period 4
+		    			pst_add.setString(1, mon4);
+		    			pst_add.setString(2, tue4);
+		    			pst_add.setString(3, wed4);
+		    			pst_add.setString(4, thu4);
+		    			pst_add.setString(5, fri4);
+		    			pst_add.setString(6, sat4);
+		    			pst_add.setString(7, sun4);
+		    			pst_add.addBatch();
+		    			
+		    			//Period 5
+		    			pst_add.setString(1, mon5);
+		    			pst_add.setString(2, tue5);
+		    			pst_add.setString(3, wed5);
+		    			pst_add.setString(4, thu5);
+		    			pst_add.setString(5, fri5);
+		    			pst_add.setString(6, sat5);
+		    			pst_add.setString(7, sun5);
+		    			pst_add.addBatch();
+		    			
+		    			//Period 6
+		    			pst_add.setString(1, mon6);
+		    			pst_add.setString(2, tue6);
+		    			pst_add.setString(3, wed6);
+		    			pst_add.setString(4, thu6);
+		    			pst_add.setString(5, fri6);
+		    			pst_add.setString(6, sat6);
+		    			pst_add.setString(7, sun6);
+		    			pst_add.addBatch();
+		    			
+		    			//Period 7
+		    			pst_add.setString(1, mon7);
+		    			pst_add.setString(2, tue7);
+		    			pst_add.setString(3, wed7);
+		    			pst_add.setString(4, thu7);
+		    			pst_add.setString(5, fri7);
+		    			pst_add.setString(6, sat7);
+		    			pst_add.setString(7, sun7);
+		    			pst_add.addBatch();
+		    			
+		    			//Period 8
+		    			pst_add.setString(1, mon8);
+		    			pst_add.setString(2, tue8);
+		    			pst_add.setString(3, wed8);
+		    			pst_add.setString(4, thu8);
+		    			pst_add.setString(5, fri8);
+		    			pst_add.setString(6, sat8);
+		    			pst_add.setString(7, sun8);
+		    			pst_add.addBatch();
+		    			
+		    			//Period 9
+		    			pst_add.setString(1, mon9);
+		    			pst_add.setString(2, tue9);
+		    			pst_add.setString(3, wed9);
+		    			pst_add.setString(4, thu9);
+		    			pst_add.setString(5, fri9);
+		    			pst_add.setString(6, sat9);
+		    			pst_add.setString(7, sun9);
+		    			pst_add.addBatch();	    			
+		    			
+		    			//Executes Prepared statement batch
+		    			pst_add.executeBatch();	    			
 		    		
 		    			JOptionPane.showMessageDialog(null, "Data saved!");   
 		    			
