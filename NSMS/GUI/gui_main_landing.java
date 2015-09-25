@@ -24,8 +24,8 @@ import javax.swing.JInternalFrame;
 import javax.swing.border.EtchedBorder;
 import javax.swing.JDesktopPane;
 
+import TimeTable.timetable_main_gui;
 import chat.*;
-//import TimeTable;
 
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -36,8 +36,10 @@ import net.miginfocom.swing.MigLayout;
 import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
 
+
 //import directory_operations.new_parent_directory;
 import directory_operations.*;
+
 import javax.swing.JLabel;
 
 
@@ -51,7 +53,7 @@ public class gui_main_landing {
 	/**
 	 * Launch the application.
 	 */
-	public static void penismain(String[] args) {
+	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -316,6 +318,14 @@ public class gui_main_landing {
 		mnEdit.add(mntmCreateNewDir);
 		
 		JButton btnTimeTable = new JButton("Time Table");
+		btnTimeTable.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				timetable_main_gui timetable = new timetable_main_gui();
+				timetable.setVisible(true);			
+				
+			}
+		});
 		btnTimeTable.setBackground(Color.DARK_GRAY);
 		btnTimeTable.setForeground(Color.WHITE);
 		menuBar.add(btnTimeTable);

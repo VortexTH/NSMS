@@ -15,6 +15,7 @@ import javax.swing.JScrollPane;
 import javax.swing.UIManager;
 
 import net.miginfocom.swing.MigLayout;
+import net.proteanit.sql.DbUtils;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -25,6 +26,7 @@ import javax.swing.table.TableModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+@SuppressWarnings({ "serial", "unused" })
 public class timetable_main_gui extends JDialog {
 
 	/**
@@ -80,6 +82,17 @@ public class timetable_main_gui extends JDialog {
 		});
 		mnEdit.add(mntmTimeTable);
 		
+		JMenuItem mntmUpdateTimeTable = new JMenuItem("Update Time Table");
+		mntmUpdateTimeTable.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				
+				
+				
+			}
+		});
+		mnEdit.add(mntmUpdateTimeTable);
+		
 		JButton btnExit = new JButton("Exit");
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -96,20 +109,24 @@ public class timetable_main_gui extends JDialog {
 		
 		table = new JTable(tableModel);
 		scrollPane.setViewportView(table);
+		table.setEnabled(false);
 		
 		JButton btnRefresh = new JButton("Refresh");
 		btnRefresh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				ttconnection = SQLite_tt_connector.ttdb_connection();
-				String query = "SELECT * from TimeTable;";
+				String query = "SELECT Period, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday from TimeTable;";
 								
 				try {
 					statement = ttconnection.prepareStatement(query);
 					ResultSet results = statement.executeQuery();
 					ResultSetMetaData metaData = results.getMetaData();
 					
-					// Names of columns
+					table.setModel(DbUtils.resultSetToTableModel(results));
+					
+					//TODO remove this if finalized!
+					/* Names of columns
 		            Vector<String> columnNames = new Vector<String>();
 		            int columnCount = metaData.getColumnCount();
 		             
@@ -131,7 +148,7 @@ public class timetable_main_gui extends JDialog {
 		                  data.add(vector);
 		              }
 		              	              
-		              tableModel.setDataVector(data, columnNames);				
+		              tableModel.setDataVector(data, columnNames);*/				
 			
 				} catch (SQLException e) {
 					e.printStackTrace();

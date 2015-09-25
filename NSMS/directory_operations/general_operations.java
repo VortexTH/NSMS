@@ -10,10 +10,7 @@ public class general_operations {
 	
 	//public String name;
 	public String finalpath;
-	
-	
-	
-	
+		
 	
 	//creates a new directory of name "name" at path "finalpath"
 	public void new_dir (String inputpath, String name){
@@ -22,17 +19,13 @@ public class general_operations {
 		File dir = new File(finalpath);				
 		
 		if (!dir.exists()){				
-		  dir.mkdir();
+		  dir.mkdir();		  
 		  }
 		
 		else{
 		  JOptionPane.showMessageDialog(null, "Such a directory already exists in this location!");
 		  }
 	}
-	
-	
-	
-	
 	
 	
 	

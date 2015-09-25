@@ -259,7 +259,7 @@ public class new_course_directories extends JDialog {
 						
 						String parentpath = theoutputpath + "\\" + ".NSMS" + "\\ParentDir\\";
 						
-						JOptionPane.showMessageDialog(null, parentpath);
+						//JOptionPane.showMessageDialog(null, parentpath);
 						
 						//accesses general operations class for new_dir method
 						general_operations newdir = new general_operations();
@@ -314,67 +314,71 @@ public class new_course_directories extends JDialog {
 									sl6 = true;
 									}
 								
+								newdir.new_dir(parentpath, "Higher_Level");
+								newdir.new_dir(parentpath, "Standard_Level");
 								
+								String highdir = parentpath + "//" + "Higher_Level";
+								String standarddir = parentpath + "//" + "Standard_Level";
 								
 								//This calls the create_dir class for any filled out fields
 								if (hl1 = true){
-									String hl1subj = txthl1.getText().toUpperCase() + "_HL"; 
-									newdir.new_dir(parentpath, hl1subj);
+									String hl1subj = txthl1.getText().toUpperCase(); 
+									newdir.new_dir(highdir, hl1subj);
 									}
 								
 								if (hl2 = true){
-									String hl2subj = txthl2.getText().toUpperCase() + "_HL"; 
-									newdir.new_dir(parentpath, hl2subj);
+									String hl2subj = txthl2.getText().toUpperCase(); 
+									newdir.new_dir(highdir, hl2subj);
 									}
 								
 								if (hl3 = true){
-									String hl3subj = txthl3.getText().toUpperCase() + "_HL";
-									newdir.new_dir(parentpath, hl3subj);
+									String hl3subj = txthl3.getText().toUpperCase();
+									newdir.new_dir(highdir, hl3subj);
 									}
 								
 								if (hl4 = true){
-									String hl4subj = txthl4.getText().toUpperCase() + "_HL";
-									newdir.new_dir(parentpath,  hl4subj);
+									String hl4subj = txthl4.getText().toUpperCase();
+									newdir.new_dir(highdir,  hl4subj);
 									}
 								
 								if (hl5 = true){
-									String hl5subj = txthl5.getText().toUpperCase() + "_HL"; 
-									newdir.new_dir(parentpath, hl5subj);
+									String hl5subj = txthl5.getText().toUpperCase(); 
+									newdir.new_dir(highdir, hl5subj);
 									}
 								
 								if (hl6 = true){
-									String hl6subj = txthl6.getText().toUpperCase() + "_HL";
-									newdir.new_dir(parentpath, hl6subj);
+									String hl6subj = txthl6.getText().toUpperCase();
+									newdir.new_dir(highdir, hl6subj);
 									}
 								
 								if (sl1 = true){
-									String sl1subj = txtsl1.getText().toUpperCase() + "_SL";
-									newdir.new_dir(parentpath, sl1subj);
+									String sl1subj = txtsl1.getText().toUpperCase();
+									newdir.new_dir(standarddir, sl1subj);
 									}
 								
 								if (sl2 = true){
-									String sl2subj = txtsl2.getText().toUpperCase() + "_SL";
-									newdir.new_dir(parentpath, sl2subj);
+									String sl2subj = txtsl2.getText().toUpperCase();
+									newdir.new_dir(standarddir, sl2subj);
 									}
 								
 								if (sl3 = true){
-									String sl3subj = txtsl3.getText().toUpperCase() + "_SL";
-									newdir.new_dir(parentpath, sl3subj);
+									String sl3subj = txtsl3.getText().toUpperCase();
+									newdir.new_dir(standarddir, sl3subj);
 									}
 								
 								if (sl4 = true){
-									String sl4subj = txtsl4.getText().toUpperCase() + "_SL";
-									newdir.new_dir(parentpath, sl4subj);
+									String sl4subj = txtsl4.getText().toUpperCase();
+									newdir.new_dir(standarddir, sl4subj);
 									}
 								
 								if (sl5 = true){
-									String sl5subj = txtsl5.getText().toUpperCase() + "_SL";
-									newdir.new_dir(parentpath, sl5subj);
+									String sl5subj = txtsl5.getText().toUpperCase();
+									newdir.new_dir(standarddir, sl5subj);
 									}
 								
 								if (sl6 = true){
-									String sl6subj = txtsl6.getText().toUpperCase() + "_SL";
-									newdir.new_dir(parentpath, sl6subj);
+									String sl6subj = txtsl6.getText().toUpperCase();
+									newdir.new_dir(standarddir, sl6subj);
 									}
 								
 								

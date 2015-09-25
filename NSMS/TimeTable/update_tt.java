@@ -22,7 +22,7 @@ import java.awt.event.ActionEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-public class Jtable_input_gui extends JDialog {
+public class update_tt extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtmon1;
@@ -94,7 +94,7 @@ public class Jtable_input_gui extends JDialog {
 	 */
 	public static void main(String[] args) {
 		try {
-			Jtable_input_gui dialog = new Jtable_input_gui();
+			update_tt dialog = new update_tt();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 			
@@ -110,7 +110,7 @@ public class Jtable_input_gui extends JDialog {
 	Connection ttconnection = null;
 	
 	
-	public Jtable_input_gui() {
+	public update_tt() {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (ClassNotFoundException e1) {
@@ -132,7 +132,7 @@ public class Jtable_input_gui extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		
-		JLabel lblEnterYourClasses = new JLabel("Enter Your Classes Below. For a Free period, enter FREE:");
+		JLabel lblEnterYourClasses = new JLabel("Edit Your Classes Below. For a Free period, enter FREE:");
 		lblEnterYourClasses.setBounds(10, 11, 351, 14);
 		contentPanel.add(lblEnterYourClasses);
 		
@@ -859,42 +859,9 @@ public class Jtable_input_gui extends JDialog {
 						
 					try{
 						
-						String queryadd = "insert into TimeTable (Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday, Period) values (?,?,?,?,?,?,?,?) "; //SQLite Query
+						String queryadd = "Update TimeTable SET (Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday, Period)"; //SQLite Query
 		    			PreparedStatement pst_add = ttconnection.prepareStatement(queryadd);
-		    					    			
-		    			/*
-		    			int day;
-		    			int period;
-		    			int d;
-		    			int p;
-		    			String mon;
-		    			String tue;
-		    			String wed;
-		    			String thu;
-		    			String fr;
-		    			String sat;
-		    			String sun;
-		  
-		    			for (period = 1; period < 10; period ++){
-
-		    				p = period;		    			
-
-		    			      for (day = 1; day < 8; day++){		    				    
-		    			    	//TODO think of something real intelligent to get this shit to work.... (creates appropriate String and adds it to the prepared statement)		    			    			    	
-		    			    	pst_add.setString(1, mon);
-		  		    			pst_add.setString(2, tue);
-		  		    			pst_add.setString(3, wed);
-		  		    			pst_add.setString(4, thu);
-		  		    			pst_add.setString(5, fr);
-		  		    			pst_add.setString(6, sat);
-		  		    			pst_add.setString(7, sun);		    			   
-		    			      }
-
-		    			   //Executes prepared Statement
-		    			   pst_add.execute();
-
-		    			}
-		    			 */	
+		    			
 		    			
 		    			//Period 1
 		    			pst_add.setString(1, mon1);
